@@ -6,7 +6,18 @@ public class Item : MonoBehaviour
 {
     private Rigidbody2D rigidbody2d;
     public float floatFactor = 0.80f;
-    private bool isCollided = false;
+    private bool collided;
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("collision");
+        collided = true;
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        collided = false;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -16,20 +27,11 @@ public class Item : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(isCollided);
-        if (!isCollided)
+        //Debug.Log(collided);
+        if (!collided)
         {
-
         rigidbody2d.velocity *= floatFactor;
         rigidbody2d.angularVelocity *= floatFactor;
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        isCollided = true;
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        isCollided = false;
+     }
     }
 }
