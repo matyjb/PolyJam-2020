@@ -15,7 +15,7 @@ public class PlayerControls : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector2 speed = new Vector2(speedFactorX, speedFactorY);
         Vector2 move;
@@ -27,6 +27,6 @@ public class PlayerControls : MonoBehaviour
         {
             move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         }
-        rigidbody2d.MovePosition(move * Time.deltaTime * speed * 10 + rigidbody2d.position);
+        rigidbody2d.MovePosition(move * Time.deltaTime * speed * 5 + rigidbody2d.position);
     }
 }
