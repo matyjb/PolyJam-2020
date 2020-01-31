@@ -13,7 +13,7 @@ public class Warrior : MonoBehaviour
 
 	// Update is called once per frame
 	void Update() {
-		transform.position += (targetPosition - transform.position).normalized * 4 * Time.deltaTime;
+		transform.position += (targetPosition - transform.position).normalized * 3 * Time.deltaTime;
 		if (Vector3.Distance(transform.position, targetPosition) < 0.1f) {
 			onPosition = true;
 			transform.position = targetPosition;

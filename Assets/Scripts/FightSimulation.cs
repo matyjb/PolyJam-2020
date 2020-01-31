@@ -7,9 +7,12 @@ public class FightSimulation : MonoBehaviour {
 	[Header("Prefabs")]
 	public GameObject piratePrefab;
 	public GameObject warriorPrefab;
+	public GameObject exclMarkPrefab;
 
 	[Header("SpawnGo")]
 	public GameObject pirateWarriorGo;
+	public GameObject leftMarkGo;
+	public GameObject rightMarkGo;
 
 	List<Vector3> fightPair = new List<Vector3>();
 
@@ -22,7 +25,7 @@ public class FightSimulation : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (Input.GetKeyDown(KeyCode.A)) {
+		if (Input.GetKeyDown(KeyCode.Z)) {
 			SpawnPair();
 		}
 	}
@@ -40,10 +43,20 @@ public class FightSimulation : MonoBehaviour {
 		tempGo.GetComponent<Pirate>().Setup(targetPosition);
 
 		// Warrior
+		StartCoroutine(SpawnWarriorAfterTime(targetPosition));
+		
+
+		// Other
+	}
+
+	IEnumerator SpawnWarriorAfterTime(Vector3 targetPosition) {
+		yield return new WaitForSeconds(Random.Range(1f, 2.5f));
+		SpawnExclMark(targetPosition);
+		yield return new WaitForSeconds(1.05f);
 		int multiplayer = -1;
 		if (targetPosition.x >= 0)
 			multiplayer *= -1;
-		tempGo = Instantiate(warriorPrefab, new Vector3(8 * multiplayer, 0, 0), transform.rotation, pirateWarriorGo.transform);
+		GameObject tempGo = Instantiate(warriorPrefab, new Vector3(8 * multiplayer, 0, 0), transform.rotation, pirateWarriorGo.transform);
 		warriors.Add(tempGo);
 		tempGo.GetComponent<Warrior>().Setup(targetPosition);
 	}
@@ -56,5 +69,15 @@ public class FightSimulation : MonoBehaviour {
 				return false;
 		}
 		return true;
+	}
+
+	void SpawnExclMark(Vector3 pos) {
+		GameObject tempGo = Instantiate(exclMarkPrefab);
+		if (pos.x >= 0)
+			tempGo.transform.SetParent(rightMarkGo.transform);
+		else
+			tempGo.transform.SetParent(leftMarkGo.transform);
+		tempGo.transform.localScale = tempGo.transform.lossyScale;
+		tempGo.transform.localPosition = Vector2.zero;
 	}
 }
