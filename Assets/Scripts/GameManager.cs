@@ -4,21 +4,36 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float shipHealth;
-    public bool shipDead;
+	public static GameManager instance;
 
-    float gameplayStartTime;
-    public float gameTime;
+	[Header("Player")]
+	public GameObject player;
 
     Vector2 holeSpawnArea = new Vector2( 5f, 2f );
     public GameObject holePrefab;
+	// Health
+    float shipHealth;
+	public bool IsShipDead {
+		get {
+			return shipHealth <= 0;
+		}
+	}
+
+	// Time
+	float gameplayStartTime;
+	float gameTime;
 
 
     void Start()
+
+	private void Awake() {
+		instance = this;
+	}
+
+	void Start()
     {
         gameplayStartTime = Time.realtimeSinceStartup;
         gameTime = 0;
-        shipDead = false;
 
         shipHealth = 1.0f;
     }
@@ -26,12 +41,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         gameTime = Time.realtimeSinceStartup - gameplayStartTime;
-
-        shipDead = IsShipDead();
-
-        // Temp debug
-        if( Input.GetKeyDown( KeyCode.K ) )
-            SpawnRandomHole();
     }
 
     public void DamageShip( float damage )
@@ -39,11 +48,7 @@ public class GameManager : MonoBehaviour
         shipHealth -= damage;
     }
 
-    bool IsShipDead()
-    {
-        return shipHealth <= 0;
-    }
-
+    
     void SpawnRandomHole()
     {
         Vector2 randomPos;
