@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TempBurstTrigger : MonoBehaviour
+public class BurstTrigger : MonoBehaviour
 {
     ParticleSystem particles;
     Animator anim;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void FireCanon()
     {
         if (!particles.isPlaying)
         {
