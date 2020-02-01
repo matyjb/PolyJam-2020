@@ -15,11 +15,12 @@ public class Inventory : MonoBehaviour
 	}
 
 	private void Update() {
-		if (Input.GetKeyDown(KeyCode.F)) {
+		if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Fire1")) {
 			if (pickedUp == null) {
 				if (currentHighlited != null) {
 					Item item = currentHighlited.Pickup();
 					Pickup(item);
+					GameManager.instance.player.GetComponent<PlayerControls>().ChangeHolding(true);
 				}
 			} else {
 				// Drop
@@ -27,6 +28,7 @@ public class Inventory : MonoBehaviour
 				pickedUp.transform.position = GameManager.instance.player.transform.position + (Vector3)GameManager.instance.player.GetComponent<PlayerControls>().lastMoveNon0;
 				pickedUp.Drop();
 				pickedUp = null;
+				GameManager.instance.player.GetComponent<PlayerControls>().ChangeHolding(false);
 			}
 		}
 	}

@@ -5,34 +5,37 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-	public static GameManager instance;
+    public static GameManager instance;
 
-	[Header("Player")]
-	public GameObject player;
+    [Header( "Player" )]
+    public GameObject player;
 
     Vector2 holeSpawnArea = new Vector2( 5f, 2f );
     public GameObject holePrefab;
-	// Health
+    // Health
     float shipHealth;
-	public bool IsShipDead {
-		get {
-			return shipHealth <= 0;
-		}
-	}
+    public bool IsShipDead
+    {
+        get
+        {
+            return shipHealth <= 0;
+        }
+    }
 
-	// Time
-	float gameplayStartTime;
-	float gameTime;
+    // Time
+    float gameplayStartTime;
+    float gameTime;
 
     // UI
     public Slider shipHealthUI;
 
 
-	private void Awake() {
-		instance = this;
-	}
+    private void Awake()
+    {
+        instance = this;
+    }
 
-	void Start()
+    void Start()
     {
         gameplayStartTime = Time.realtimeSinceStartup;
         gameTime = 0;
@@ -45,7 +48,7 @@ public class GameManager : MonoBehaviour
         gameTime = Time.realtimeSinceStartup - gameplayStartTime;
 
         // Temp
-        if( Input.GetKeyDown( KeyCode.K) )
+        if( Input.GetKeyDown( KeyCode.K ) )
         {
             SpawnRandomHole();
         }
@@ -58,7 +61,7 @@ public class GameManager : MonoBehaviour
         shipHealth -= damage;
     }
 
-    
+
     void SpawnRandomHole()
     {
         Vector2 randomPos;
@@ -66,22 +69,22 @@ public class GameManager : MonoBehaviour
         float circleRadius = holePrefab.GetComponent<CircleCollider2D>().radius * 1.2f;
 
         Collider2D collision = null;
-        GameObject hole = null;
+        bool hole = false;
 
-        for( int i = 0; hole == null && i < 50; ++i )
+        for( int i = 0; hole == false && i < 50; ++i )
         {
-            randomPos = new Vector2( 
-                Random.Range( -holeSpawnArea.x, holeSpawnArea.x ), 
+            randomPos = new Vector2(
+                Random.Range( -holeSpawnArea.x, holeSpawnArea.x ),
                 Random.Range( -holeSpawnArea.y, holeSpawnArea.y ) );
             collision = Physics2D.OverlapCircle( randomPos + colliderOffset, circleRadius );
 
             if( collision == null )
             {
-                hole = Instantiate( holePrefab, randomPos, holePrefab.transform.rotation );
-                DamageShip( .1f );
+                Instantiate( holePrefab, randomPos, holePrefab.transform.rotation );
+                hole = true;
             }
         }
-        if( hole == null )
+        if( hole == false )
         {
             Debug.Log( "Couldn't spawn hole" );
         }

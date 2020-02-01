@@ -18,7 +18,16 @@ public class PlayerControls : MonoBehaviour
 	[Header("Item")]
 	public GameObject itemSpawn;
 
-    void Start()
+	[Header("Animation")]
+	public Transform animationSprite;
+	Animator animator;
+	int lastSpeed = 0;
+
+	private void Awake() {
+		animator = GetComponent<Animator>();
+	}
+
+	void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
@@ -39,5 +48,28 @@ public class PlayerControls : MonoBehaviour
 		if (move != Vector2.zero) {
 			lastMoveNon0 = move;
 		}
+		CheckAnimation();
     }
+
+	void CheckAnimation() {
+		Vector3 rotation = animationSprite.rotation.eulerAngles;
+		int newSpeed = 1;
+		if (move.x > 0) {
+			rotation.y = 180;
+		} else if (move.x < 0) {
+			rotation.y = 0;
+		} else {
+			if (move.y == 0)
+				newSpeed = 0;
+		}
+		if (newSpeed != lastSpeed) {
+			animator.SetInteger("Speed", newSpeed);
+		}
+		lastSpeed = newSpeed;
+		animationSprite.rotation = Quaternion.Euler(rotation);
+	}
+
+	public void ChangeHolding(bool isHolding) {
+		animator.SetBool("Item", isHolding);
+	}
 }
