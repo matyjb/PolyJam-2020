@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     float gameplayStartTime;
     public float gameTime;
 
+    Vector2 holeSpawnArea = new Vector2( 5f, 2f );
+    public GameObject holePrefab;
+
 
     void Start()
     {
@@ -25,6 +28,10 @@ public class GameManager : MonoBehaviour
         gameTime = Time.realtimeSinceStartup - gameplayStartTime;
 
         shipDead = IsShipDead();
+
+        // Temp debug
+        if( Input.GetKeyDown( KeyCode.K ) )
+            SpawnRandomHole();
     }
 
     public void DamageShip( float damage )
@@ -35,5 +42,28 @@ public class GameManager : MonoBehaviour
     bool IsShipDead()
     {
         return shipHealth <= 0;
+    }
+
+    void SpawnRandomHole()
+    {
+        Vector2 randomPos;
+        Vector2 colliderOffset = holePrefab.GetComponent<CircleCollider2D>().offset;
+        float circleRadius = holePrefab.GetComponent<CircleCollider2D>().radius * 1.2f;
+
+        Collider2D collision = null;
+        GameObject hole = null;
+
+        for( int i = 0; hole == null && i < 50; ++i )
+        {
+            randomPos = new Vector2( 
+                Random.Range( -holeSpawnArea.x, holeSpawnArea.x ), 
+                Random.Range( -holeSpawnArea.y, holeSpawnArea.y ) );
+            collision = Physics2D.OverlapCircle( randomPos + colliderOffset, circleRadius );
+
+            if( collision == null )
+            {
+                hole = Instantiate( holePrefab, randomPos, holePrefab.transform.rotation );
+            }
+        }
     }
 }
