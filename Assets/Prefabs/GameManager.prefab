@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7864437339504476726}
   - component: {fileID: 7864437339504476725}
+  - component: {fileID: 4330213000452002715}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -43,8 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79ee408a9f99a34989003d931603e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipHealth: 0
-  shipDead: 0
-  gameTime: 0
+  player: {fileID: 0}
   holePrefab: {fileID: 8562169467637278415, guid: 822163fc90ae2ff4b96c277baacea2a1,
     type: 3}
+  shipHealthUI: {fileID: 0}
+--- !u!114 &4330213000452002715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864437339504476724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba11f5a63c874562be41280543b3764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  draggables: {fileID: 0}

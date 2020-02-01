@@ -15,11 +15,11 @@ public class Inventory : MonoBehaviour
 	}
 
 	private void Update() {
-		if (Input.GetKeyDown(KeyCode.F)) {
+		if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Fire1")) {
 			if (pickedUp == null) {
 				if (currentHighlited != null) {
-					currentHighlited.Pickup();
-					Pickup(currentHighlited);
+					Item item = currentHighlited.Pickup();
+					Pickup(item);
 				}
 			} else {
 				// Drop
