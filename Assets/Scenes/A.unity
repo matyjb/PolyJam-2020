@@ -959,6 +959,21 @@ PrefabInstance:
       propertyPath: maxCameraMove.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8103159560543886762, guid: 1f4198f616fcf474aa4d3991ac6a1101,
+        type: 3}
+      propertyPath: shakeMagnitude
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8103159560543886762, guid: 1f4198f616fcf474aa4d3991ac6a1101,
+        type: 3}
+      propertyPath: defaultShakeMagnitude
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8103159560543886762, guid: 1f4198f616fcf474aa4d3991ac6a1101,
+        type: 3}
+      propertyPath: maxShakeDuration
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8103159560543886774, guid: 1f4198f616fcf474aa4d3991ac6a1101,
         type: 3}
       propertyPath: m_Name

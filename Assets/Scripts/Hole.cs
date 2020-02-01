@@ -59,11 +59,13 @@ public class Hole : MonoBehaviour
 		spriteRenderer.sprite = holeSprite;
 		collider.enabled = true;
 		GameManager.instance.DamageShip( .1f );
+
+		FindObjectOfType<CameraController>().TriggerShake();
 	}
 
 	IEnumerator CannonballHit()
 	{
-		float timeToImpact = Random.Range( 4f, 6f );
+		float timeToImpact = UnityEngine.Random.Range( 4f, 6f );
 		Color c;
 		for( float ft = 0; ft < 1; ft += Time.deltaTime / timeToImpact )
 		{
