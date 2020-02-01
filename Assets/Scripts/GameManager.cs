@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         gameTime = Time.realtimeSinceStartup - gameplayStartTime;
+
+        // Temp
+        if( Input.GetKeyDown( KeyCode.K) )
+        {
+            SpawnRandomHole();
+        }
     }
 
     public void DamageShip( float damage )
@@ -67,6 +73,10 @@ public class GameManager : MonoBehaviour
             {
                 hole = Instantiate( holePrefab, randomPos, holePrefab.transform.rotation );
             }
+        }
+        if( hole == null )
+        {
+            Debug.Log( "Couldn't spawn hole" );
         }
     }
 }

@@ -127,6 +127,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 76777519}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &52267752 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5264984693650173580, guid: 46f674aee0c8ea2408a410608d8e36ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1975272138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &76777519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172,7 +178,7 @@ PrefabInstance:
     - target: {fileID: 2926869760020750194, guid: 3b1491296a4ed411b93f234cfd07dda6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2926869760020750194, guid: 3b1491296a4ed411b93f234cfd07dda6,
         type: 3}
@@ -223,9 +229,9 @@ Transform:
   m_LocalPosition: {x: -0.66492724, y: -1.5209181, z: -4.9903326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2039929051}
   - {fileID: 18787569}
   - {fileID: 1098970450}
+  - {fileID: 52267752}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -274,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 2926869760020750194, guid: 3b1491296a4ed411b93f234cfd07dda6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2926869760020750194, guid: 3b1491296a4ed411b93f234cfd07dda6,
         type: 3}
@@ -1162,33 +1168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f4198f616fcf474aa4d3991ac6a1101, type: 3}
---- !u!1 &2039929050 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5264984693650173581, guid: 46f674aee0c8ea2408a410608d8e36ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 5264984695404623447}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2039929051 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5264984693650173580, guid: 46f674aee0c8ea2408a410608d8e36ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 5264984695404623447}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2039929056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2039929050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3beb6cec4f1e57345af3b4a24d255d82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
-  outlineSize: 0
---- !u!1001 &5264984695404623447
+--- !u!1001 &1975272138
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1198,17 +1178,17 @@ PrefabInstance:
     - target: {fileID: 5264984693650173580, guid: 46f674aee0c8ea2408a410608d8e36ec,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.845073
       objectReference: {fileID: 0}
     - target: {fileID: 5264984693650173580, guid: 46f674aee0c8ea2408a410608d8e36ec,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.940918
       objectReference: {fileID: 0}
     - target: {fileID: 5264984693650173580, guid: 46f674aee0c8ea2408a410608d8e36ec,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.9903326
       objectReference: {fileID: 0}
     - target: {fileID: 5264984693650173580, guid: 46f674aee0c8ea2408a410608d8e36ec,
         type: 3}
@@ -1233,7 +1213,7 @@ PrefabInstance:
     - target: {fileID: 5264984693650173580, guid: 46f674aee0c8ea2408a410608d8e36ec,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5264984693650173580, guid: 46f674aee0c8ea2408a410608d8e36ec,
         type: 3}
@@ -1254,6 +1234,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fixing Plank
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264984693650173581, guid: 46f674aee0c8ea2408a410608d8e36ec,
+        type: 3}
+      propertyPath: m_TagString
+      value: FixingPlank
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46f674aee0c8ea2408a410608d8e36ec, type: 3}

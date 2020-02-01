@@ -4,44 +4,56 @@ using UnityEngine;
 
 public class Hole : MonoBehaviour
 {
-    public bool fixedHole;
-    public bool walkable;
+	public bool fixedHole;
+	public bool walkable;
 
-    SpriteRenderer spriteRenderer;
-    public Sprite holeSprite;
-    public Sprite fixedHoleSprite;
+	SpriteRenderer spriteRenderer;
+	public Sprite holeSprite;
+	public Sprite fixedHoleSprite;
 
-    CircleCollider2D collider;
-    
+	CircleCollider2D collider;
 
-    void Start()
-    {
-        fixedHole = false;
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = holeSprite;
+	void Start()
+	{
+		fixedHole = false;
 
-        collider = GetComponent<CircleCollider2D>();
-    }
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		spriteRenderer.sprite = holeSprite;
 
-    private void Update()
-    {
-        // Temporary
-        if( fixedHole ) Fix();
-        else Break();
-    }
+		collider = GetComponent<CircleCollider2D>();
+	}
 
-    public void Fix()
-    {
-        fixedHole = true;
-        spriteRenderer.sprite = fixedHoleSprite;
-        collider.enabled = false;
-    }
+	private void Update()
+	{
+		// Temporary
+		if( fixedHole ) Fix();
+		else Break();
+	}
 
-    public void Break()
-    {
-        fixedHole = false;
-        spriteRenderer.sprite = holeSprite;
-        collider.enabled = true;
-    }
+	private void OnCollisionEnter2D( Collision2D collision )
+	{
+		if( !fixedHole )
+		{
+			if( collision.gameObject.CompareTag( "FixingPlank" ) )
+			{
+				Destroy( collision.gameObject );
+				Fix();
+			}
+		}
+	}
+
+	public void Fix()
+	{
+		fixedHole = true;
+		spriteRenderer.sprite = fixedHoleSprite;
+		collider.enabled = false;
+	}
+
+	public void Break()
+	{
+		fixedHole = false;
+		spriteRenderer.sprite = holeSprite;
+		collider.enabled = true;
+	}
 }
