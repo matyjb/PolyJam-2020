@@ -5,12 +5,11 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     private Rigidbody2D rigidbody2d;
-    public float floatFactor = 0.80f;
+    public float floatFactor = 0.98f;
     private bool collided;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collision");
         collided = true;
     }
 
@@ -30,8 +29,8 @@ public class Item : MonoBehaviour
         //Debug.Log(collided);
         if (!collided)
         {
-        rigidbody2d.velocity *= floatFactor;
-        rigidbody2d.angularVelocity *= floatFactor;
-     }
+            rigidbody2d.velocity *= floatFactor;
+            rigidbody2d.angularVelocity *= floatFactor;
+        }
     }
 }
