@@ -361,7 +361,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.13155532, y: -0.20792544}
+  m_Offset: {x: -0.13155532, y: -0.49507868}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -372,7 +372,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8784537, y: 1.3519526}
+  m_Size: {x: 1.8784537, y: 1.926259}
   m_EdgeRadius: 0
 --- !u!50 &1129669159
 Rigidbody2D:
@@ -476,7 +476,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.13155532, y: -0.20792544}
+  m_Offset: {x: -0.13155532, y: -0.49507868}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -487,7 +487,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8784537, y: 1.3519526}
+  m_Size: {x: 1.8784537, y: 1.926259}
   m_EdgeRadius: 0
 --- !u!50 &1944535573
 Rigidbody2D:
@@ -772,7 +772,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.13155532, y: -0.20792544}
+  m_Offset: {x: -0.13155532, y: -0.49507868}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -783,7 +783,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8784537, y: 1.3519526}
+  m_Size: {x: 1.8784537, y: 1.926259}
   m_EdgeRadius: 0
 --- !u!50 &1038088693283358450
 Rigidbody2D:
@@ -1084,7 +1084,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.13155532, y: -0.20792544}
+  m_Offset: {x: -0.13155532, y: -0.49507868}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1095,7 +1095,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8784537, y: 1.3519526}
+  m_Size: {x: 1.8784537, y: 1.926259}
   m_EdgeRadius: 0
 --- !u!50 &6223764122733998823
 Rigidbody2D:

@@ -15,6 +15,7 @@ public class Item : MonoBehaviour
 	public bool isStack;
 	public GameObject objectPrefab;
 	public int itemsRemaning = 5;
+	public float range = 1.2f;
 	SpriteRenderer sprite;
 	bool canPickUp = false;
     
@@ -32,7 +33,7 @@ public class Item : MonoBehaviour
 		}
 
 		// PickingUp
-		canPickUp = Vector3.Distance(transform.position, GameManager.instance.player.transform.position) <= 1.2f;
+		canPickUp = Vector3.Distance(transform.position, GameManager.instance.player.transform.position) <= range;
 		if (canPickUp) {
 			Inventory.CheckIfCanHighlight(this);
 		} else {
