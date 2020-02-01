@@ -5,10 +5,16 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     private Rigidbody2D rigidbody2d;
+
+	[Header("Speed")]
     public float speedFactorX = 2;
     public float speedFactorY = 1;
     public bool isRaw = true;
-    // Start is called before the first frame update
+	public Vector2 lastMoveNon0 = Vector2.right;
+
+	[Header("Item")]
+	public GameObject itemSpawn;
+
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -28,5 +34,8 @@ public class PlayerControls : MonoBehaviour
             move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         }
         rigidbody2d.MovePosition(move * Time.fixedDeltaTime * speed * 5 + rigidbody2d.position);
+		if (move != Vector2.zero) {
+			lastMoveNon0 = move;
+		}
     }
 }

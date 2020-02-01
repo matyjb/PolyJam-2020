@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public static Item currentHighlited;
+	public static Item pickedUp;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public GameObject draggables;
+
+	public static void Pickup(Item item) {
+		pickedUp = item;
+		DeHighlight(item);
+	}
+
+	private void Update() {
+		if (pickedUp != null && Input.GetKeyDown(KeyCode.G)) {
+			pickedUp.transform.SetParent(draggables.transform);
+			pickedUp.transform.position = GameManager.instance.player.transform.position;
+			pickedUp.rigidbody2d.simulated = true;
+			pickedUp = null;
+			Debug.Log("Dropped");
+		}
+	}
+
+	public static void CheckIfCanHighlight(Item item) {
+		if (currentHighlited == null && pickedUp == null) {
+			currentHighlited = item;
+			item.Highlight();
+		}
+	}
+
+	public static void DeHighlight(Item item) {
+		if (currentHighlited == item) {
+			item.DeHighlight();
+			currentHighlited = null;
+		}
+	}
 }
