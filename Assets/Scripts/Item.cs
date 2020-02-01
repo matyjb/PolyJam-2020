@@ -26,7 +26,7 @@ public class Item : MonoBehaviour
 
 	void Update() {
 		// Smooth push
-		if (!collided) {
+		if (!collided && !isStack) {
 			rigidbody2d.velocity *= floatFactor;
 			rigidbody2d.angularVelocity *= floatFactor;
 		}
