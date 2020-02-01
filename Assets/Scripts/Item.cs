@@ -52,6 +52,7 @@ public class Item : MonoBehaviour
 		rigidbody2d.simulated = false;
 		sprite.sortingOrder = 100;
 		transform.SetParent(GameManager.instance.player.GetComponent<PlayerControls>().itemSpawn.transform);
+		transform.rotation = new Quaternion();
 		transform.localPosition = Vector3.zero;
 	}
 
