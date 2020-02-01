@@ -24,13 +24,6 @@ public class Hole : MonoBehaviour
 		collider = GetComponent<CircleCollider2D>();
 	}
 
-	private void Update()
-	{
-		// Temporary
-		if( fixedHole ) Fix();
-		else Break();
-	}
-
 	private void OnCollisionEnter2D( Collision2D collision )
 	{
 		if( !fixedHole )
@@ -48,6 +41,7 @@ public class Hole : MonoBehaviour
 		fixedHole = true;
 		spriteRenderer.sprite = fixedHoleSprite;
 		collider.enabled = false;
+		GameManager.instance.DamageShip( -0.1f );
 	}
 
 	public void Break()

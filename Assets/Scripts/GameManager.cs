@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class GameManager : MonoBehaviour
 	// Time
 	float gameplayStartTime;
 	float gameTime;
+
+    // UI
+    public Slider shipHealthUI;
 
 
 	private void Awake() {
@@ -45,6 +49,8 @@ public class GameManager : MonoBehaviour
         {
             SpawnRandomHole();
         }
+
+        shipHealthUI.value = shipHealth;
     }
 
     public void DamageShip( float damage )
@@ -72,6 +78,7 @@ public class GameManager : MonoBehaviour
             if( collision == null )
             {
                 hole = Instantiate( holePrefab, randomPos, holePrefab.transform.rotation );
+                DamageShip( .1f );
             }
         }
         if( hole == null )
