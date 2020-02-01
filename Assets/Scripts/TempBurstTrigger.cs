@@ -6,19 +6,18 @@ public class TempBurstTrigger : MonoBehaviour
 {
     ParticleSystem particles;
     Animator anim;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!particles.isPlaying)
         {
             particles.Play();
-            anim.Play("Canon");
+            anim.SetTrigger("Burst");
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = gameObject.GetComponentInParent<Animator>();
         particles = GetComponent<ParticleSystem>();
     }
 
