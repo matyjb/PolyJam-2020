@@ -12,7 +12,9 @@ public class Item : MonoBehaviour
 	private bool collided;
 
 	[Header("Item pickable")]
-	public bool pickable;
+	public bool isStack;
+	public GameObject objectPrefab;
+	public int itemsRemaning = 5;
 	SpriteRenderer sprite;
 	bool canPickUp = false;
     
@@ -48,12 +50,23 @@ public class Item : MonoBehaviour
 		GetComponent<SpriteOutline>().outlineSize = 0;
 	}
 
-	public void Pickup() {
-		rigidbody2d.simulated = false;
-		sprite.sortingOrder = 100;
-		transform.SetParent(GameManager.instance.player.GetComponent<PlayerControls>().itemSpawn.transform);
-		transform.rotation = new Quaternion();
-		transform.localPosition = Vector3.zero;
+	public Item Pickup() {
+		if (isStack) {
+			GameObject tempGo = Instantiate(objectPrefab, GameManager.instance.player.GetComponent<PlayerControls>().itemSpawn.transform);
+			Item item = tempGo.GetComponent<Item>();
+			item.rigidbody2d.simulated = false;
+			item.sprite.sortingOrder = 100;
+			tempGo.transform.rotation = new Quaternion();
+			tempGo.transform.localPosition = Vector3.zero;
+			return item;
+		} else {
+			rigidbody2d.simulated = false;
+			sprite.sortingOrder = 100;
+			transform.SetParent(GameManager.instance.player.GetComponent<PlayerControls>().itemSpawn.transform);
+			transform.rotation = new Quaternion();
+			transform.localPosition = Vector3.zero;
+			return this;
+		}
 	}
 
 	public void Drop() {

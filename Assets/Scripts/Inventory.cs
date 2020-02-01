@@ -18,8 +18,8 @@ public class Inventory : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.F)) {
 			if (pickedUp == null) {
 				if (currentHighlited != null) {
-					currentHighlited.Pickup();
-					Pickup(currentHighlited);
+					Item item = currentHighlited.Pickup();
+					Pickup(item);
 				}
 			} else {
 				// Drop

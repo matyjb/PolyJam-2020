@@ -432,8 +432,10 @@ GameObject:
   - component: {fileID: 862797294}
   - component: {fileID: 862797296}
   - component: {fileID: 862797295}
+  - component: {fileID: 862797298}
+  - component: {fileID: 862797297}
   m_Layer: 0
-  m_Name: Kulki
+  m_Name: Stos kul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -471,7 +473,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2ab06a01243de7447a4544c24c0f6a7c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -550,6 +552,38 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &862797297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862797292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3beb6cec4f1e57345af3b4a24d255d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+  outlineSize: 0
+--- !u!114 &862797298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862797292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a25916f3a9e0f498af9dd8905f0484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatFactor: 0.98
+  rigidbody2d: {fileID: 0}
+  isStack: 1
+  objectPrefab: {fileID: 2926869760020750205, guid: 3b1491296a4ed411b93f234cfd07dda6,
+    type: 3}
+  itemsRemaning: 5
 --- !u!4 &947853596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2000386549191415021, guid: 2a6836d075a5b4ade8022cd59a1a6235,
@@ -1657,5 +1691,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kula
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 223578755, guid: 3b1491296a4ed411b93f234cfd07dda6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3b1491296a4ed411b93f234cfd07dda6, type: 3}
