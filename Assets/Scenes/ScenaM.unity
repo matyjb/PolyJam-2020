@@ -419,6 +419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1977499429}
   holePrefab: {fileID: 0}
+  shipHealthUI: {fileID: 0}
 --- !u!1 &862797292
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +623,16 @@ PrefabInstance:
       propertyPath: focusTransform
       value: 
       objectReference: {fileID: 1977499434}
+    - target: {fileID: 8103159560543886762, guid: 1f4198f616fcf474aa4d3991ac6a1101,
+        type: 3}
+      propertyPath: maxCameraMove.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8103159560543886762, guid: 1f4198f616fcf474aa4d3991ac6a1101,
+        type: 3}
+      propertyPath: maxCameraMove.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8103159560543886774, guid: 1f4198f616fcf474aa4d3991ac6a1101,
         type: 3}
       propertyPath: m_Name
