@@ -24,8 +24,6 @@ public class GameManager : MonoBehaviour
 	float gameTime;
 
 
-    void Start()
-
 	private void Awake() {
 		instance = this;
 	}
