@@ -36,8 +36,6 @@ public class Item : MonoBehaviour
 		} else {
 			Inventory.DeHighlight(this);
 		}
-
-		Pickup();
 	}
 
 	public void Highlight() {
@@ -48,14 +46,11 @@ public class Item : MonoBehaviour
 		sprite.color = Color.white;
 	}
 
-	void Pickup() {
-		if (Inventory.currentHighlited == this && Input.GetKeyDown(KeyCode.F)) {
-			rigidbody2d.simulated = false;
-			sprite.sortingOrder = 100;
-			transform.SetParent(GameManager.instance.player.GetComponent<PlayerControls>().itemSpawn.transform);
-			transform.localPosition = Vector3.zero;
-			Inventory.Pickup(this);
-		}
+	public void Pickup() {
+		rigidbody2d.simulated = false;
+		sprite.sortingOrder = 100;
+		transform.SetParent(GameManager.instance.player.GetComponent<PlayerControls>().itemSpawn.transform);
+		transform.localPosition = Vector3.zero;
 	}
 
 	public void Drop() {
