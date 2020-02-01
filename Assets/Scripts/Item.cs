@@ -40,7 +40,7 @@ public class Item : MonoBehaviour
 
 	public void Highlight() {
 		//sprite.color = Color.black;
-		GetComponent<SpriteOutline>().outlineSize = 2;
+		GetComponent<SpriteOutline>().outlineSize = 4;
 	}
 
 	public void DeHighlight() {
