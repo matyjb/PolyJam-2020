@@ -7,8 +7,8 @@ public class Pirate : MonoBehaviour
 	public Vector3 targetPosition;
 	bool onPosition = false;
 
-	public void Setup(Vector3 target) {
-		targetPosition = target + Vector3.up / 2;
+	public void Setup(Vector3 target, bool pirateIsRight) {
+		targetPosition = target + (pirateIsRight ? Vector3.right : Vector3.left) / 2;
 	}
 
     // Update is called once per frame
