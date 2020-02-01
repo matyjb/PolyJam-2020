@@ -1444,19 +1444,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1711973597, guid: 20145dabdeb28b7489d6c265545fab16, type: 3}
-      propertyPath: m_Size.y
-      value: 0.43669033
-      objectReference: {fileID: 0}
-    - target: {fileID: 1711973597, guid: 20145dabdeb28b7489d6c265545fab16, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.7146549
-      objectReference: {fileID: 0}
-    - target: {fileID: 3114709000072814514, guid: 20145dabdeb28b7489d6c265545fab16,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5651393477034260773, guid: 20145dabdeb28b7489d6c265545fab16,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1517,12 +1504,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7971012862998844362, guid: 20145dabdeb28b7489d6c265545fab16,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: e13819c40d4af4113a78bca504a23a4d,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20145dabdeb28b7489d6c265545fab16, type: 3}
 --- !u!1 &1315762864
@@ -2639,56 +2620,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1286184745}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &1977499430
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977499429}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 2.02, y: 2.63}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!4 &1977499434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5651393477034260773, guid: 20145dabdeb28b7489d6c265545fab16,
