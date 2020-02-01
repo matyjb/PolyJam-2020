@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Hole : MonoBehaviour
 {
-	enum State {
+	enum State
+	{
 		mark,
 		hole,
 		fixedHole
@@ -63,10 +64,10 @@ public class Hole : MonoBehaviour
 	IEnumerator CannonballHit()
 	{
 		float timeToImpact = Random.Range( 4f, 6f );
-
+		Color c;
 		for( float ft = 0; ft < 1; ft += Time.deltaTime / timeToImpact )
 		{
-			Color c = spriteRenderer.material.color;
+			c = spriteRenderer.material.color;
 			c.a = ft;
 			spriteRenderer.material.color = c;
 			yield return null;
@@ -76,12 +77,16 @@ public class Hole : MonoBehaviour
 		{
 			for( float ft = 3f; ft >= .5f; ft -= Time.deltaTime * 3 )
 			{
-				Color c = spriteRenderer.material.color;
+				c = spriteRenderer.material.color;
 				c.a = ft;
 				spriteRenderer.material.color = c;
 				yield return null;
 			}
 		}
+
+		c = spriteRenderer.material.color;
+		c.a = 1;
+		spriteRenderer.material.color = c;
 
 		Break();
 	}

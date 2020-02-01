@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 5264984693650173577}
   - component: {fileID: 5264984693650173579}
   - component: {fileID: 5264984693650173576}
-  - component: {fileID: 6250984521219031646}
   - component: {fileID: 9088723401684866990}
+  - component: {fileID: 388022091}
   m_Layer: 0
   m_Name: Fixing Plank
-  m_TagString: Untagged
+  m_TagString: FixingPlank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5264984693650173581}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.845073, y: 2.940918, z: 4.9903326}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fb92d4a62b6e64fc4a8f51a02bd9f1f4, type: 3}
-  m_Color: {r: 0.8679245, g: 0.7297008, b: 0.23335704, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f410de0a302b96b4c8c90930d7c17794, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,7 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatFactor: 0.95
   rigidbody2d: {fileID: 0}
-  pickable: 0
+  isStack: 0
+  objectPrefab: {fileID: 0}
+  itemsRemaning: 5
 --- !u!50 &5264984693650173576
 Rigidbody2D:
   serializedVersion: 4
@@ -121,22 +123,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &6250984521219031646
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5264984693650173581}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
 --- !u!114 &9088723401684866990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,3 +137,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
   outlineSize: 0
+--- !u!61 &388022091
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5264984693650173581}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.07, y: 0.82}
+    newSize: {x: 0.59, y: 0.59}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.07, y: 0.82}
+  m_EdgeRadius: 0
