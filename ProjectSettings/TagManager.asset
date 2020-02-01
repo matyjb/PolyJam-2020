@@ -8,6 +8,7 @@ TagManager:
   - Railing
   - Wall
   - FixingPlank
+  - CanonBall
   layers:
   - Default
   - TransparentFX
