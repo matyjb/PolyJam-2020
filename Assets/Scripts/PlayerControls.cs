@@ -27,6 +27,6 @@ public class PlayerControls : MonoBehaviour
         {
             move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         }
-        rigidbody2d.MovePosition(move * Time.deltaTime * speed * 5 + rigidbody2d.position);
+        rigidbody2d.MovePosition(move * Time.fixedDeltaTime * speed * 5 + rigidbody2d.position);
     }
 }
