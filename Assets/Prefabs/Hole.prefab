@@ -80,7 +80,7 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8562169467637278412
@@ -95,10 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12fd2924876804949b82bdc6e8d2dc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixedHole: 0
-  walkable: 0
-  holeSprite: {fileID: 21300000, guid: b854d6b5bc6a86e4aa3f71351d0c20e4, type: 3}
-  fixedHoleSprite: {fileID: 21300000, guid: a8a7ae7ebe3e72e478c8f1cd5095a567, type: 3}
+  xMarkSprite: {fileID: 21300000, guid: 5403f82330eb0bc4794ffc6a89133f45, type: 3}
+  holeSprite: {fileID: 21300000, guid: 97ab9eacdb9c02748baaa0959bff9f00, type: 3}
+  fixedHoleSprite: {fileID: 21300000, guid: 6d3de837b68451e41b493b4dba646e95, type: 3}
 --- !u!58 &8562169467637278387
 CircleCollider2D:
   m_ObjectHideFlags: 0
