@@ -19,10 +19,10 @@ public class MastAlpha : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( playerTransform.position.y < 0 || Mathf.Abs(playerTransform.position.x) > 5 )
-            alpha = 1f;
-        else
-            alpha = .5f;
+        float fadeSpeed = 5f;
+        bool fadeOut = playerTransform.position.y > 0 && Mathf.Abs( playerTransform.position.x ) < 5;
+
+        alpha = Mathf.Lerp( alpha, fadeOut ? .5f : 1f, fadeSpeed * Time.deltaTime );
 
         Color c = spriteRenderer.material.color;
         c.a = alpha;
