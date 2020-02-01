@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
@@ -12,13 +13,21 @@ public class Item : MonoBehaviour
 	private bool collided;
 
 	[Header("Item pickable")]
-	public bool isStack;
 	public GameObject objectPrefab;
-	public int itemsRemaning = 5;
 	public float range = 1.2f;
 	SpriteRenderer sprite;
 	bool canPickUp = false;
-    
+
+	[Header("Stack")]
+	public bool isStack;
+	public int maxItems = 6;
+	public Text leftText;
+
+
+	// Internal
+	int itemsRemaning = 6;
+
+
 
 	void Awake() {
 		rigidbody2d = GetComponent<Rigidbody2D>();
@@ -35,10 +44,13 @@ public class Item : MonoBehaviour
 		// PickingUp
 		canPickUp = Vector3.Distance(transform.position, GameManager.instance.player.transform.position) <= range;
 		if (canPickUp) {
-			Inventory.CheckIfCanHighlight(this);
+			if (itemsRemaning > 0)
+				Inventory.CheckIfCanHighlight(this);
 		} else {
 			Inventory.DeHighlight(this);
 		}
+
+		leftText.text = itemsRemaning.ToString();
 	}
 
 	public void Highlight() {
@@ -59,6 +71,7 @@ public class Item : MonoBehaviour
 			item.sprite.sortingOrder = 100;
 			tempGo.transform.rotation = new Quaternion();
 			tempGo.transform.localPosition = Vector3.zero;
+			itemsRemaning -= 1;
 			return item;
 		} else {
 			rigidbody2d.simulated = false;
