@@ -29,4 +29,13 @@ public class PlayerControls : MonoBehaviour
         }
         rigidbody2d.MovePosition(move * Time.fixedDeltaTime * speed * 5 + rigidbody2d.position);
     }
+
+    private void OnTriggerEnter2D( Collider2D collision )
+    {
+        if( collision.tag == "StairsDown" )
+            transform.position = new Vector3( -6.79f, -21.5f, -1 );
+        else if( collision.tag == "StairsUp" )
+            transform.position = new Vector3( -4.19f, 2.07f, -1 );
+    }
 }
+
