@@ -17,8 +17,8 @@ public class Inventory : MonoBehaviour
 	private void Update() {
 		if (pickedUp != null && Input.GetKeyDown(KeyCode.G)) {
 			pickedUp.transform.SetParent(draggables.transform);
-			pickedUp.transform.position = GameManager.instance.player.transform.position + Vector3.down;
-			pickedUp.rigidbody2d.simulated = true;
+			pickedUp.transform.position = GameManager.instance.player.transform.position + (Vector3)GameManager.instance.player.GetComponent<PlayerControls>().lastMoveNon0;
+			pickedUp.Drop();
 			pickedUp = null;
 			Debug.Log("Dropped");
 		}

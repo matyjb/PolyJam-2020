@@ -10,7 +10,10 @@ public class PlayerControls : MonoBehaviour
     public float speedFactorX = 2;
     public float speedFactorY = 1;
     public bool isRaw = true;
+	[HideInInspector]
 	public Vector2 lastMoveNon0 = Vector2.right;
+	[HideInInspector]
+	public Vector2 move;
 
 	[Header("Item")]
 	public GameObject itemSpawn;
@@ -24,7 +27,6 @@ public class PlayerControls : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 speed = new Vector2(speedFactorX, speedFactorY);
-        Vector2 move;
         if (isRaw)
         {
             move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
