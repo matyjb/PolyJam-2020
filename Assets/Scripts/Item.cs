@@ -58,7 +58,10 @@ public class Item : MonoBehaviour
 	public void Drop() {
 		rigidbody2d.simulated = true;
 		sprite.sortingOrder = 0;
-		rigidbody2d.velocity = GameManager.instance.player.GetComponent<PlayerControls>().lastMoveNon0 * 8 + GameManager.instance.player.GetComponent<PlayerControls>().move * 8;
+		rigidbody2d.velocity = GameManager.instance.player.GetComponent<PlayerControls>().lastMoveNon0 * 6;
+		if (GameManager.instance.player.GetComponent<PlayerControls>().move != Vector2.zero)
+			rigidbody2d.velocity *= 2;
+		rigidbody2d.velocity = Helpers.StretchXVelocity(rigidbody2d.velocity);
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
