@@ -39,11 +39,13 @@ public class Item : MonoBehaviour
 	}
 
 	public void Highlight() {
-		sprite.color = Color.black;
+		//sprite.color = Color.black;
+		GetComponent<SpriteOutline>().outlineSize = 2;
 	}
 
 	public void DeHighlight() {
-		sprite.color = Color.white;
+		//sprite.color = Color.white;
+		GetComponent<SpriteOutline>().outlineSize = 0;
 	}
 
 	public void Pickup() {
