@@ -149,5 +149,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3beb6cec4f1e57345af3b4a24d255d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
-  outlineSize: 3
+  color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+  outlineSize: 0
