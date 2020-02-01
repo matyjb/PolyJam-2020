@@ -22,6 +22,7 @@ public class Item : MonoBehaviour
 	public bool isStack;
 	public int maxItems = 6;
 	public Text leftText;
+	public Animator animatorUi;
 
 
 	// Internal
@@ -50,7 +51,7 @@ public class Item : MonoBehaviour
 			Inventory.DeHighlight(this);
 		}
 
-		leftText.text = itemsRemaning.ToString();
+		leftText.text = "<b>" + itemsRemaning.ToString() + "</b>";
 	}
 
 	public void Highlight() {
@@ -72,6 +73,7 @@ public class Item : MonoBehaviour
 			tempGo.transform.rotation = new Quaternion();
 			tempGo.transform.localPosition = Vector3.zero;
 			itemsRemaning -= 1;
+			animatorUi.SetTrigger("Grab");
 			return item;
 		} else {
 			rigidbody2d.simulated = false;
