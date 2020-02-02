@@ -955,6 +955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1977499429}
+  holeSpawnArea: {x: 5, y: 2}
   holePrefab: {fileID: 0}
   shipHealthUI: {fileID: 774256874}
 --- !u!1001 &878528989
@@ -2442,7 +2443,7 @@ PrefabInstance:
     - target: {fileID: 1137959605368776316, guid: 9e20b26a04b994aea8c2b66e28210722,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e20b26a04b994aea8c2b66e28210722, type: 3}
@@ -3159,7 +3160,7 @@ PrefabInstance:
     - target: {fileID: 1137959605368776316, guid: d4f064415b1484e83a204df04af589f3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1203174223348975248, guid: d4f064415b1484e83a204df04af589f3,
         type: 3}

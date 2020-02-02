@@ -35,10 +35,9 @@ public class FightSimulation : MonoBehaviour {
 		if (Random.Range(0, 2) == 0)
 			isPirateRight = false;
 
-		Vector3 targetPosition;
-		do {
-			targetPosition = new Vector2(Random.Range(-5f, 5f), Random.Range(-2f, 2f));
-		} while (!CheckForClose(targetPosition));
+		Vector2 targetPosition = ReturnFightPosition();
+		if (targetPosition == Vector2.zero)
+			return;
 		fightPair.Add(targetPosition);
 
 		// Pirate
@@ -63,6 +62,29 @@ public class FightSimulation : MonoBehaviour {
 		GameObject tempGo = Instantiate(warriorPrefab, new Vector3(8 * multiplayer, 0, 0), transform.rotation, pirateWarriorGo.transform);
 		warriors.Add(tempGo);
 		tempGo.GetComponent<Warrior>().Setup(targetPosition, isPirateRight);
+	}
+
+	Vector2 ReturnFightPosition() {
+		Vector2 randomPos;
+		float circleRadius = 1f;
+		Vector2 holeSpawnArea = GameManager.instance.holeSpawnArea;
+
+		Collider2D collision;
+		bool hole = false;
+
+		for (int i = 0; hole == false && i < 50; ++i) {
+			randomPos = new Vector2(
+				Random.Range(-holeSpawnArea.x, holeSpawnArea.x),
+				Random.Range(-holeSpawnArea.y, holeSpawnArea.y));
+			collision = Physics2D.OverlapCircle(randomPos, circleRadius);
+
+			if (collision == null) {
+				return randomPos;
+			}
+		}
+		Debug.Log("Zero :(");
+		return Vector2.zero;
+
 	}
 
 	bool CheckForClose(Vector3 position) {
