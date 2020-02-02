@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemyCannonsController : MonoBehaviour
 {
-    Vector2 holeSpawnArea = new Vector2( 7f, 2.5f );
+	public static EnemyCannonsController instance;
+
+    public Vector2 holeSpawnArea = new Vector2( 7f, 2.5f );
     public GameObject holePrefab;
     GameManager gm;
 
@@ -18,8 +20,12 @@ public class EnemyCannonsController : MonoBehaviour
     public int currentNrOfFights;
 
 
-    // Start is called before the first frame update
-    void Start()
+	private void Awake() {
+		instance = this;
+	}
+
+	// Start is called before the first frame update
+	void Start()
     {
         phase = 0;
         gm = GameManager.instance;

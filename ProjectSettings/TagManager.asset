@@ -11,6 +11,8 @@ TagManager:
   - CanonBall
   - StairsDown
   - Destroyer
+  - Wiadro
+  - Bottle
   layers:
   - Default
   - TransparentFX
