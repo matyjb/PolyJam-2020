@@ -14,6 +14,8 @@ public class EnemyCannonsController : MonoBehaviour
     float currentShotTime;
     int minShots;
     int maxShots;
+    public int maxNrOfFights;
+    public int currentNrOfFights;
 
 
     // Start is called before the first frame update
@@ -22,6 +24,8 @@ public class EnemyCannonsController : MonoBehaviour
         phase = 0;
         gm = GameManager.instance;
         currentShotTime = 4f;
+        maxNrOfFights = 0;
+        currentNrOfFights = 0;
     }
 
     // Update is called once per frame
@@ -35,6 +39,12 @@ public class EnemyCannonsController : MonoBehaviour
             ShootCannons( Random.Range( minShots, maxShots ) );
         }
         currentShotTime -= Time.deltaTime;
+
+        if( currentNrOfFights < maxNrOfFights )
+        {
+            gm.GetComponent<FightSimulation>().SpawnPair();
+            currentNrOfFights++;
+        }
 
         if( Input.GetKeyDown( KeyCode.K ) )
             ShootCannons( 2 );
@@ -50,13 +60,14 @@ public class EnemyCannonsController : MonoBehaviour
             minShots = 0;
             maxShots = 0;
         }
-        if( gm.gameTime < 20 )
+        else if( gm.gameTime < 20 )
         {
             phase = 1;
             minShootingDelay = 5f;
             maxShootingDelay = 10f;
             minShots = 1;
             maxShots = 1;
+            maxNrOfFights = 1;
         }
         else if( gm.gameTime < 40 )
         {
@@ -65,6 +76,7 @@ public class EnemyCannonsController : MonoBehaviour
             maxShootingDelay = 10f;
             minShots = 1;
             maxShots = 2;
+            maxNrOfFights = 2;
         }
         else if( gm.gameTime < 100 )
         {
@@ -73,6 +85,7 @@ public class EnemyCannonsController : MonoBehaviour
             maxShootingDelay = 8f;
             minShots = 1;
             maxShots = 3;
+            maxNrOfFights = 3;
         }
         else if( gm.gameTime < 200 )
         {
@@ -81,6 +94,7 @@ public class EnemyCannonsController : MonoBehaviour
             maxShootingDelay = 7f;
             minShots = 3;
             maxShots = 5;
+            maxNrOfFights = 4;
         }
     }
 

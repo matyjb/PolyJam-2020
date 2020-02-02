@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4330213000452002715}
   - component: {fileID: 14981443}
   - component: {fileID: 14981444}
+  - component: {fileID: 14981440}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -173,3 +174,26 @@ MonoBehaviour:
   holePrefab: {fileID: 8562169467637278415, guid: 822163fc90ae2ff4b96c277baacea2a1,
     type: 3}
   phase: 0
+  maxNrOfFights: 0
+  currentNrOfFights: 0
+--- !u!114 &14981440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864437339504476724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c6c01589da148b7a3d340d5ff4a2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piratePrefab: {fileID: 1137959605368776316, guid: d4f064415b1484e83a204df04af589f3,
+    type: 3}
+  warriorPrefab: {fileID: 1137959605368776316, guid: 9e20b26a04b994aea8c2b66e28210722,
+    type: 3}
+  exclMarkPrefab: {fileID: 66619519062096744, guid: 1e86b404040794926a4677f6de0f606e,
+    type: 3}
+  pirateWarriorGo: {fileID: 0}
+  leftMarkGo: {fileID: 0}
+  rightMarkGo: {fileID: 0}
