@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class WaterLevelControl : MonoBehaviour
 {
+    public static WaterLevelControl _instance;
+
+    public void Awake()
+    {
+        _instance = this;    
+    }
+    
     private bool isInsideWater = false;
     private WaterLevel wl;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isInsideWater = true;
+        if (collision.name == "Player")
+            isInsideWater = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isInsideWater = false;
+        if (collision.name == "Player")
+            isInsideWater = false;
     }
     // Start is called before the first frame update
     void Start()
@@ -22,12 +31,16 @@ public class WaterLevelControl : MonoBehaviour
     }
 
     // Update is called once per frame
+    public void PickUpBucketOfWater()
+    {
+        if (isInsideWater && (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.F)))
+        {
+            wl.WaterLevelPercent -= 0.3f;
+            if (wl.WaterLevelPercent < 0) wl.WaterLevelPercent = 0;
+        }
+    }
     void Update()
     {
-        if (isInsideWater && Input.GetButtonDown("Fire1"))
-        {
-            wl.waterLevelPercent -= 0.2f;
-            if (wl.waterLevelPercent < 0) wl.waterLevelPercent = 0;
-        }
+        wl.WaterLevelPercent += 0.005f * Time.deltaTime;
     }
 }

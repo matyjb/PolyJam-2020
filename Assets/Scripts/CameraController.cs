@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
 	{
 		allowedAreas = new List<Rect>
 		{
-			new Rect(new Vector2(-maxCameraMove.x,maxCameraMove.y),maxCameraMove*2),
+			new Rect(new Vector2(-maxCameraMove.x,maxCameraMove.y-5),maxCameraMove*2),
 			new Rect(new Vector2(-maxCameraMove.x,maxCameraMove.y-25),maxCameraMove*2),
 		};
 	}
