@@ -22,6 +22,7 @@ public class PlayerControls : MonoBehaviour
 	public Transform animationSprite;
 	Animator animator;
 	int lastSpeed = 0;
+	public GameObject waterAnim;
 
 	private void Awake() {
 		animator = GetComponent<Animator>();
@@ -71,5 +72,11 @@ public class PlayerControls : MonoBehaviour
 
 	public void ChangeHolding(bool isHolding) {
 		animator.SetBool("Item", isHolding);
+	}
+
+	public IEnumerator BucketThrow() {
+		waterAnim.SetActive(true);
+		yield return new WaitForSeconds(0.3f);
+		waterAnim.SetActive(false);
 	}
 }
