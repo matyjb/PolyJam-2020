@@ -42,16 +42,17 @@ public class FightSimulation : MonoBehaviour {
 		// Pirate
 		GameObject tempGo = Instantiate(piratePrefab, new Vector3(0, 5.5f, 0), transform.rotation, pirateWarriorGo.transform);
 		pirates.Add(tempGo);
-		tempGo.GetComponent<Pirate>().Setup(targetPosition);
+		Pirate pirate = tempGo.GetComponent<Pirate>();
+		pirate.Setup(targetPosition);
 
 		// Warrior
-		StartCoroutine(SpawnWarriorAfterTime(targetPosition));
+		StartCoroutine(SpawnWarriorAfterTime(targetPosition, pirate));
 		
 
 		// Other
 	}
 
-	IEnumerator SpawnWarriorAfterTime(Vector3 targetPosition) {
+	IEnumerator SpawnWarriorAfterTime(Vector3 targetPosition, Pirate pirate) {
 		yield return new WaitForSeconds(Random.Range(1f, 2.5f));
 		SpawnExclMark(targetPosition);
 		yield return new WaitForSeconds(1.05f);
@@ -60,7 +61,7 @@ public class FightSimulation : MonoBehaviour {
 			multiplayer *= -1;
 		GameObject tempGo = Instantiate(warriorPrefab, new Vector3(8 * multiplayer, 0, 0), transform.rotation, pirateWarriorGo.transform);
 		warriors.Add(tempGo);
-		tempGo.GetComponent<Warrior>().Setup(targetPosition);
+		tempGo.GetComponent<Warrior>().Setup(targetPosition, pirate);
 	}
 
 	Vector2 ReturnFightPosition() {
