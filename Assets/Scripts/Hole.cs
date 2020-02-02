@@ -64,7 +64,7 @@ public class Hole : MonoBehaviour
 
 		audio.PlayOneShot( fixingSfx );
 
-		GameManager.instance.AddPoints( 100 );
+		GameManager.instance.holesHixed++;
 	}
 
 	public void Break()
@@ -112,4 +112,6 @@ public class Hole : MonoBehaviour
 
 		Break();
 	}
+
+	
 }

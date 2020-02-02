@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class DestroyOnAnimation : MonoBehaviour
 {
-    public void DestroyAnim() {
+	private void Awake()
+	{
+		GetComponent<AudioSource>().Play();
+	}
+	public void DestroyAnim() {
 		Destroy(gameObject);
 	}
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class WaterLevelControl : MonoBehaviour
 {
     public static WaterLevelControl _instance;
-
     public void Awake()
     {
         _instance = this;    
@@ -36,6 +35,7 @@ public class WaterLevelControl : MonoBehaviour
         if (isInsideWater && (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.F)))
         {
             wl.WaterLevelPercent -= 0.3f;
+            GetComponent<AudioSource>().Play();
             if (wl.WaterLevelPercent < 0) wl.WaterLevelPercent = 0;
         }
     }
