@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Points
+    public int points;
+
     // Time
     float gameplayStartTime;
     public float gameTime;
@@ -38,19 +41,32 @@ public class GameManager : MonoBehaviour
     {
         gameplayStartTime = Time.realtimeSinceStartup;
         gameTime = 0;
+        points = 0;
 
         shipHealth = 1.0f;
     }
 
     void Update()
     {
-        gameTime = Time.realtimeSinceStartup - gameplayStartTime;
-
         shipHealthUI.value = shipHealth;
+
+        if( IsShipDead )
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            gameTime = Time.realtimeSinceStartup - gameplayStartTime;
+        }
     }
 
     public void DamageShip( float damage )
     {
         shipHealth -= damage;
+    }
+
+    public void AddPoints( int newPoints )
+    {
+        points += newPoints;
     }
 }

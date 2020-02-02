@@ -63,6 +63,8 @@ public class Hole : MonoBehaviour
 		GameManager.instance.DamageShip( -0.1f );
 
 		audio.PlayOneShot( fixingSfx );
+
+		GameManager.instance.AddPoints( 100 );
 	}
 
 	public void Break()
