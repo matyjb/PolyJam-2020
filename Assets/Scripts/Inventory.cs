@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory instance;
     public static Item currentHighlited;
     public static Item pickedUp;
 
     public GameObject draggables;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     public static void Pickup(Item item)
     {
         pickedUp = item;
@@ -34,28 +39,32 @@ public class Inventory : MonoBehaviour
             }
             else
             {
-                if (pickedUp.gameObject.tag == "Wiadro")
-                {
-                Debug.Log("hello"+pickedUp.gameObject.tag);
-                    if (!Burta._instance.isIn)
-                    {
-                        WaterLevelControl._instance.FailThrowWaterOut();
-                    }
-                    pickedUp.Drop();
-                    Destroy(pickedUp.gameObject);
-                    pickedUp = null;
-                    GameManager.instance.player.GetComponent<PlayerControls>().ChangeHolding(false);
-                }
-                else
-                {
-                    // Drop
-                    pickedUp.transform.SetParent(draggables.transform);
-                    pickedUp.transform.position = GameManager.instance.player.transform.position + (Vector3)GameManager.instance.player.GetComponent<PlayerControls>().lastMoveNon0;
-                    pickedUp.Drop();
-                    pickedUp = null;
-                    GameManager.instance.player.GetComponent<PlayerControls>().ChangeHolding(false);
-                }
+                Drop();
             }
+        }
+    }
+
+    public void Drop()
+    {
+        if (pickedUp.gameObject.tag == "Wiadro")
+        {
+            if (!Burta._instance.isIn)
+            {
+                WaterLevelControl._instance.FailThrowWaterOut();
+            }
+            pickedUp.Drop();
+            Destroy(pickedUp.gameObject);
+            pickedUp = null;
+            GameManager.instance.player.GetComponent<PlayerControls>().ChangeHolding(false);
+        }
+        else
+        {
+            // Drop
+            pickedUp.transform.SetParent(draggables.transform);
+            pickedUp.transform.position = GameManager.instance.player.transform.position + (Vector3)GameManager.instance.player.GetComponent<PlayerControls>().lastMoveNon0;
+            pickedUp.Drop();
+            pickedUp = null;
+            GameManager.instance.player.GetComponent<PlayerControls>().ChangeHolding(false);
         }
     }
 
