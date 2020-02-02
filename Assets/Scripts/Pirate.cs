@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pirate : MonoBehaviour
 {
 	public Vector3 targetPosition;
-	bool onPosition = false;
+	public bool onPosition = false;
 
 	public void Setup(Vector3 target) {
 		targetPosition = target + (target.x < 0 ? Vector3.right : Vector3.left);
@@ -25,10 +25,13 @@ public class Pirate : MonoBehaviour
 			if (Vector3.Distance(transform.position, targetPosition) < 0.1f) {
 				onPosition = true;
 				transform.position = targetPosition;
-				GetComponent<Animator>().SetTrigger("Attack");
 			}
 		}
     }
+
+	public void StartAnimate() {
+		GetComponent<Animator>().SetTrigger("Attack");
+	}
 
 	void Rotate(bool right) {
 		Vector3 rotation = transform.GetChild(0).rotation.eulerAngles;

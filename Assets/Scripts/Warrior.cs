@@ -5,22 +5,29 @@ using UnityEngine;
 public class Warrior : MonoBehaviour
 {
 	public Vector3 targetPosition;
-	bool onPosition = false;
-	bool pirateIsRight;
+	bool onPosition;
+	Pirate pirate;
 
-	public void Setup(Vector3 target) {
+
+	public void Setup(Vector3 target, Pirate pirate) {
 		targetPosition = target + (target.x >= 0 ? Vector3.right : Vector3.left);
+		this.pirate = pirate;
 
 		Rotate(target.x < 0);
 	}
 
 	// Update is called once per frame
 	void Update() {
-		transform.position += (targetPosition - transform.position).normalized * 3 * Time.deltaTime;
-		if (Vector3.Distance(transform.position, targetPosition) < 0.1f) {
-			onPosition = true;
-			transform.position = targetPosition;
-			GetComponent<Animator>().SetTrigger("Attack");
+		if (!onPosition) {
+			transform.position += (targetPosition - transform.position).normalized * 3 * Time.deltaTime;
+			if (Vector3.Distance(transform.position, targetPosition) < 0.1f) {
+				transform.position = targetPosition;
+				if (pirate.onPosition) {
+					onPosition = true;
+					GetComponent<Animator>().SetTrigger("Attack");
+					pirate.StartAnimate();
+				}
+			}
 		}
 	}
 
