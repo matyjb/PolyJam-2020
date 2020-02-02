@@ -9,6 +9,8 @@ TagManager:
   - Wall
   - FixingPlank
   - CanonBall
+  - StairsDown
+  - Wiadro
   layers:
   - Default
   - TransparentFX
