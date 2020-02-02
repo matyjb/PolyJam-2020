@@ -34,7 +34,7 @@ public class BurstTrigger : MonoBehaviour
     IEnumerator ShootCannon()
     {
         audio.Play();
-        yield return new WaitForSeconds( .4f );
+        yield return new WaitForSeconds( .16f );
 
         particles.Play();
         cannonballPS.Play();
