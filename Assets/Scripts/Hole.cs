@@ -19,7 +19,10 @@ public class Hole : MonoBehaviour
 
 	CircleCollider2D collider;
 	ParticleSystem smokePS;
+
 	AudioSource audio;
+	public AudioClip enemyCannonSfx;
+	public AudioClip explosionSfx;
 
 
 	void Start()
@@ -69,6 +72,7 @@ public class Hole : MonoBehaviour
 		FindObjectOfType<CameraController>().TriggerShake();
 
 		smokePS.Play();
+		
 	}
 
 	IEnumerator CannonballHit()
@@ -83,7 +87,7 @@ public class Hole : MonoBehaviour
 			yield return null;
 		}
 
-		audio.Play();
+		audio.PlayOneShot( enemyCannonSfx );
 
 		for( int i = 0; i < 3; ++i )
 		{
@@ -99,6 +103,9 @@ public class Hole : MonoBehaviour
 		c = spriteRenderer.material.color;
 		c.a = 1;
 		spriteRenderer.material.color = c;
+
+		audio.PlayOneShot( explosionSfx, .8f );
+		yield return new WaitForSeconds( .3f );
 
 		Break();
 	}
