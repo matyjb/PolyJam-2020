@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -19,7 +20,16 @@ public class CameraController : MonoBehaviour
 	float shakeMagnitude;
 	float dampingSpeed = 1.0f;
 
+	private List<Rect> allowedAreas;
 
+	private void Start()
+	{
+		allowedAreas = new List<Rect>
+		{
+			new Rect(new Vector2(-maxCameraMove.x,maxCameraMove.y),maxCameraMove*2),
+			new Rect(new Vector2(-maxCameraMove.x,maxCameraMove.y-25),maxCameraMove*2),
+		};
+	}
 	// Update is called once per frame
 	void Update()
 	{
@@ -52,16 +62,29 @@ public class CameraController : MonoBehaviour
 
 	void CamMaxMove()
 	{
+		Rect r = allowedAreas[0];
+		for (int i = 1; i < allowedAreas.Count; i++)
+		{
+			float rr = Vector2.Distance(r.center, transform.position);
+			float aa = Vector2.Distance(allowedAreas[i].center, transform.position);
+			if (aa < rr) r = allowedAreas[i];
+		}
 		camPos = transform.position;
-		if( camPos.x > maxCameraMove.x )
-			camPos.x = maxCameraMove.x;
-		else if( camPos.x < -maxCameraMove.x )
-			camPos.x = -maxCameraMove.x;
 
-		if( camPos.y > maxCameraMove.y )
-			camPos.y = maxCameraMove.y;
-		else if( camPos.y < -maxCameraMove.y )
-			camPos.y = -maxCameraMove.y;
+		if (camPos.x < r.xMin) camPos.x = r.xMin;
+		if (camPos.x > r.xMax) camPos.x = r.xMax;
+
+		if (camPos.y < r.yMin) camPos.y = r.yMin;
+		if (camPos.y > r.yMax) camPos.y = r.yMax;
+		//if( camPos.x > maxCameraMove.x )
+		//	camPos.x = maxCameraMove.x;
+		//else if( camPos.x < -maxCameraMove.x )
+		//	camPos.x = -maxCameraMove.x;
+
+		//if( camPos.y > maxCameraMove.y )
+		//	camPos.y = maxCameraMove.y;
+		//else if( camPos.y < -maxCameraMove.y )
+		//	camPos.y = -maxCameraMove.y;
 
 		transform.position = camPos;
 	}

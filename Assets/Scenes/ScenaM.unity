@@ -575,6 +575,99 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &224710452
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 521421780}
+    m_Modifications:
+    - target: {fileID: 1235063438670823109, guid: 19695ec207ce5494d84972355c0323c5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235063438670823109, guid: 19695ec207ce5494d84972355c0323c5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235063438670823109, guid: 19695ec207ce5494d84972355c0323c5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235063438670823109, guid: 19695ec207ce5494d84972355c0323c5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235063438670823109, guid: 19695ec207ce5494d84972355c0323c5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235063438670823109, guid: 19695ec207ce5494d84972355c0323c5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235063438670823109, guid: 19695ec207ce5494d84972355c0323c5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235063438670823109, guid: 19695ec207ce5494d84972355c0323c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235063438670823109, guid: 19695ec207ce5494d84972355c0323c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235063438670823109, guid: 19695ec207ce5494d84972355c0323c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235063438670823109, guid: 19695ec207ce5494d84972355c0323c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235063438670823111, guid: 19695ec207ce5494d84972355c0323c5,
+        type: 3}
+      propertyPath: m_Name
+      value: StairsBottom
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 19695ec207ce5494d84972355c0323c5, type: 3}
+--- !u!4 &224710453 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1235063438670823109, guid: 19695ec207ce5494d84972355c0323c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 224710452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &224710454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1235063438840603726, guid: 19695ec207ce5494d84972355c0323c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 224710452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &224710455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224710454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977fd5f61d207ab4692c0472e0be5763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &250214502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -797,6 +890,7 @@ Transform:
   - {fileID: 775762951}
   - {fileID: 1435667300}
   - {fileID: 7175432585571783978}
+  - {fileID: 224710453}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -989,6 +1083,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &736998286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1235063438840603726, guid: 19695ec207ce5494d84972355c0323c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 7175432585571783977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &736998288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736998286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bcb3ca747f71e4897000635593d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &756005460 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 557612029437966844, guid: b90138fc645b3a04f9fe79ab1efc04db,
@@ -2511,7 +2623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712885163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7, y: -18.879997, z: 0}
+  m_LocalPosition: {x: 1.7, y: -20, z: 175.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2015054286}
@@ -3059,7 +3171,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -100
   m_Sprite: {fileID: 21300000, guid: 04774c4dc966d48cfb7a40d665efb63a, type: 3}
   m_Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
   m_FlipX: 0
@@ -3402,7 +3514,7 @@ PrefabInstance:
     - target: {fileID: 1235063438670823111, guid: 19695ec207ce5494d84972355c0323c5,
         type: 3}
       propertyPath: m_Name
-      value: Stairs
+      value: StairsTop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19695ec207ce5494d84972355c0323c5, type: 3}
