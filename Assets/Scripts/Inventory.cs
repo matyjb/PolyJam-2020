@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
 
 	public static Item currentHighlited;
 	public static Item pickedUp;
+	public GameObject splashPrefab;
 
     public GameObject draggables;
 
@@ -59,7 +60,9 @@ public class Inventory : MonoBehaviour
             Destroy(pickedUp.gameObject);
             pickedUp = null;
             GameManager.instance.player.GetComponent<PlayerControls>().ChangeHolding(false);
-        }
+			//StartCoroutine(GameManager.instance.player.GetComponent<PlayerControls>().BucketThrow());
+			WaterSplash();
+		}
         else
         {
             // Drop
@@ -70,6 +73,13 @@ public class Inventory : MonoBehaviour
             GameManager.instance.player.GetComponent<PlayerControls>().ChangeHolding(false);
         }
     }
+
+	void WaterSplash() {
+		GameObject tempGo = Instantiate(splashPrefab);
+		Vector2 position = GameManager.instance.player.transform.position;
+		position.y = 5.93f;
+		tempGo.transform.position = position;
+	}
 
     public static void CheckIfCanHighlight(Item item)
     {
