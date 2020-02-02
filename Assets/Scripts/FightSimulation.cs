@@ -19,18 +19,11 @@ public class FightSimulation : MonoBehaviour {
 	List<GameObject> pirates = new List<GameObject>();
 	List<GameObject> warriors = new List<GameObject>();
 
-	// Start is called before the first frame update
-	void Start() {
-		SpawnPair();
-	}
-
-	private void Update() {
-		if (Input.GetKeyDown(KeyCode.Z)) {
-			SpawnPair();
-		}
-	}
 
 	void SpawnPair() {
+		bool isPirateRight = true;
+		if (Random.Range(0, 2) == 0)
+			isPirateRight = false;
 
 		Vector2 targetPosition = ReturnFightPosition();
 		if (targetPosition == Vector2.zero)
@@ -49,7 +42,6 @@ public class FightSimulation : MonoBehaviour {
 		StartCoroutine(SpawnWarriorAfterTime(targetPosition, pirate));
 		
 
-		// Other
 	}
 
 	IEnumerator SpawnWarriorAfterTime(Vector3 targetPosition, Pirate pirate) {

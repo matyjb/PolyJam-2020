@@ -4,40 +4,37 @@ using UnityEngine;
 
 public class BurstTrigger : MonoBehaviour
 {
-    ParticleSystem particles;
-    ParticleSystem cannonballPS;
-    Animator anim;
-    AudioSource audio;
+	ParticleSystem particles;
+	ParticleSystem cannonballPS;
+	Animator anim;
+	AudioSource audio;
 
-    public void FireCanon()
-    {
-        if (!particles.isPlaying)
-        {
-            StartCoroutine( ShootCannon() );
-        }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        anim = gameObject.GetComponentInParent<Animator>();
-        particles = GetComponent<ParticleSystem>();
-        cannonballPS = GetComponentInChildren<ParticleSystem>();
-        audio = GetComponent<AudioSource>();
-    }
+	public void FireCanon()
+	{
+		if( !particles.isPlaying )
+		{
+			StartCoroutine( ShootCannon() );
+		}
+	}
+	// Start is called before the first frame update
+	void Start()
+	{
+		anim = gameObject.GetComponentInParent<Animator>();
+		particles = GetComponent<ParticleSystem>();
+		cannonballPS = GetComponentInChildren<ParticleSystem>();
+		audio = GetComponent<AudioSource>();
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
+	IEnumerator ShootCannon()
+	{
+		audio.Play();
+		yield return new WaitForSeconds( .16f );
 
-    IEnumerator ShootCannon()
-    {
-        audio.Play();
-        yield return new WaitForSeconds( .16f );
+		particles.Play();
+		cannonballPS.Play();
+		anim.SetTrigger( "Burst" );
 
-        particles.Play();
-        cannonballPS.Play();
-        anim.SetTrigger("Burst");
-    }
+		GameManager.instance.AddPoints( 300 );
+	}
 }

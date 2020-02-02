@@ -63,6 +63,8 @@ public class Hole : MonoBehaviour
 		GameManager.instance.DamageShip( -0.1f );
 
 		audio.PlayOneShot( fixingSfx );
+
+		GameManager.instance.AddPoints( 100 );
 	}
 
 	public void Break()
@@ -107,7 +109,6 @@ public class Hole : MonoBehaviour
 		spriteRenderer.material.color = c;
 
 		audio.PlayOneShot( explosionSfx, .8f );
-		//yield return new WaitForSeconds( .3f );
 
 		Break();
 	}

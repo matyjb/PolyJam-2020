@@ -10,8 +10,7 @@ public class GameManager : MonoBehaviour
     [Header( "Player" )]
     public GameObject player;
 
-    public Vector2 holeSpawnArea = new Vector2( 5f, 2f );
-    public GameObject holePrefab;
+    
     // Health
     float shipHealth;
     public bool IsShipDead
@@ -22,9 +21,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Points
+    public int points;
+
     // Time
     float gameplayStartTime;
-    float gameTime;
+    public float gameTime;
 
     // UI
     public Slider shipHealthUI;
@@ -39,21 +41,23 @@ public class GameManager : MonoBehaviour
     {
         gameplayStartTime = Time.realtimeSinceStartup;
         gameTime = 0;
+        points = 0;
 
         shipHealth = 1.0f;
     }
 
     void Update()
     {
-        gameTime = Time.realtimeSinceStartup - gameplayStartTime;
-
-        // Temp
-        if( Input.GetKeyDown( KeyCode.K ) )
-        {
-            SpawnRandomHole();
-        }
-
         shipHealthUI.value = shipHealth;
+
+        if( IsShipDead )
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            gameTime = Time.realtimeSinceStartup - gameplayStartTime;
+        }
     }
 
     public void DamageShip( float damage )
@@ -61,32 +65,8 @@ public class GameManager : MonoBehaviour
         shipHealth -= damage;
     }
 
-
-    void SpawnRandomHole()
+    public void AddPoints( int newPoints )
     {
-        Vector2 randomPos;
-        Vector2 colliderOffset = holePrefab.GetComponent<CircleCollider2D>().offset;
-        float circleRadius = holePrefab.GetComponent<CircleCollider2D>().radius * 1.2f;
-
-        Collider2D collision = null;
-        bool hole = false;
-
-        for( int i = 0; hole == false && i < 50; ++i )
-        {
-            randomPos = new Vector2(
-                Random.Range( -holeSpawnArea.x, holeSpawnArea.x ),
-                Random.Range( -holeSpawnArea.y, holeSpawnArea.y ) );
-            collision = Physics2D.OverlapCircle( randomPos + colliderOffset, circleRadius );
-
-            if( collision == null )
-            {
-                Instantiate( holePrefab, randomPos, holePrefab.transform.rotation );
-                hole = true;
-            }
-        }
-        if( hole == false )
-        {
-            Debug.Log( "Couldn't spawn hole" );
-        }
+        points += newPoints;
     }
 }
