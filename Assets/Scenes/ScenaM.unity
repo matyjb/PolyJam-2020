@@ -1635,7 +1635,7 @@ Transform:
   - {fileID: 7175432585571783978}
   - {fileID: 224710453}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &545372319
 GameObject:
@@ -1701,7 +1701,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &583340851 stripped
 GameObject:
@@ -2068,6 +2068,24 @@ MonoBehaviour:
   pirateWarriorGo: {fileID: 606835666}
   leftMarkGo: {fileID: 2076605776}
   rightMarkGo: {fileID: 1864403733}
+--- !u!114 &849032324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849032322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5990f8c4cc09e4644803752643877e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holeSpawnArea: {x: 7, y: 2.5}
+  holePrefab: {fileID: 8562169467637278415, guid: 822163fc90ae2ff4b96c277baacea2a1,
+    type: 3}
+  phase: 0
+  maxNrOfFights: 0
+  currentNrOfFights: 0
 --- !u!114 &849032328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2096,9 +2114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1977499429}
-  holeSpawnArea: {x: 5, y: 2}
-  holePrefab: {fileID: 7812426320079609377, guid: b3a7bf42300bf407aa92d4d536631d96,
-    type: 3}
+  points: 0
+  gameTime: 0
   shipHealthUI: {fileID: 774256874}
 --- !u!1001 &878528989
 PrefabInstance:
@@ -3356,7 +3373,7 @@ Transform:
   - {fileID: 1712885164}
   - {fileID: 1073169122}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1325808973
 GameObject:
@@ -3452,7 +3469,7 @@ RectTransform:
   - {fileID: 1864403734}
   - {fileID: 774256873}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

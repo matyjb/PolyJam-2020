@@ -20,7 +20,7 @@ public class FightSimulation : MonoBehaviour {
 	List<GameObject> warriors = new List<GameObject>();
 
 
-	void SpawnPair() {
+	public void SpawnPair() {
 		bool isPirateRight = true;
 		if (Random.Range(0, 2) == 0)
 			isPirateRight = false;
@@ -59,7 +59,7 @@ public class FightSimulation : MonoBehaviour {
 	Vector2 ReturnFightPosition() {
 		Vector2 randomPos;
 		float circleRadius = 1.4f;
-		Vector2 holeSpawnArea = GameManager.instance.holeSpawnArea;
+		Vector2 holeSpawnArea = EnemyCannonsController.instance.holeSpawnArea;
 
 		Collider2D collision;
 		bool hole = false;
