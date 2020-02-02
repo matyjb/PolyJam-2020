@@ -7,6 +7,7 @@ public class CanonGuyPickUp : MonoBehaviour
     // Start is called before the first frame update
     public GameObject canon;
 	Animator animator;
+	public GameObject bottlePrefab;
 
 
 	public Vector2 timeForNewKula;
@@ -56,5 +57,14 @@ public class CanonGuyPickUp : MonoBehaviour
 	void StartWaitingForBall() {
 		idleing = false;
 		animator.SetTrigger("NeedKula");
+		ThrowBottle();
+	}
+
+	void ThrowBottle() {
+	GameObject tempGo = Instantiate(bottlePrefab, Inventory.instance.draggables.transform);
+		Item item = tempGo.GetComponent<Item>();
+		tempGo.transform.rotation = new Quaternion();
+		tempGo.transform.position = transform.position + Vector3.down;
+		item.rigidbody2d.velocity = Vector3.down * 6;
 	}
 }

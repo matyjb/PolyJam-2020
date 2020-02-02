@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+	public static Inventory instance;
+
 	public static Item currentHighlited;
 	public static Item pickedUp;
 
 	public GameObject draggables;
 
+
+	private void Awake() {
+		instance = this;
+	}
 	public static void Pickup(Item item) {
 		pickedUp = item;
 		DeHighlight(item);
