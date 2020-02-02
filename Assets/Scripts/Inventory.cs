@@ -34,12 +34,27 @@ public class Inventory : MonoBehaviour
             }
             else
             {
-                // Drop
-                pickedUp.transform.SetParent(draggables.transform);
-                pickedUp.transform.position = GameManager.instance.player.transform.position + (Vector3)GameManager.instance.player.GetComponent<PlayerControls>().lastMoveNon0;
-                pickedUp.Drop();
-                pickedUp = null;
-                GameManager.instance.player.GetComponent<PlayerControls>().ChangeHolding(false);
+                if (pickedUp.gameObject.tag == "Wiadro")
+                {
+                Debug.Log("hello"+pickedUp.gameObject.tag);
+                    if (!Burta._instance.isIn)
+                    {
+                        WaterLevelControl._instance.FailThrowWaterOut();
+                    }
+                    pickedUp.Drop();
+                    Destroy(pickedUp.gameObject);
+                    pickedUp = null;
+                    GameManager.instance.player.GetComponent<PlayerControls>().ChangeHolding(false);
+                }
+                else
+                {
+                    // Drop
+                    pickedUp.transform.SetParent(draggables.transform);
+                    pickedUp.transform.position = GameManager.instance.player.transform.position + (Vector3)GameManager.instance.player.GetComponent<PlayerControls>().lastMoveNon0;
+                    pickedUp.Drop();
+                    pickedUp = null;
+                    GameManager.instance.player.GetComponent<PlayerControls>().ChangeHolding(false);
+                }
             }
         }
     }

@@ -99,10 +99,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatFactor: 0.95
   rigidbody2d: {fileID: 0}
-  isStack: 0
   objectPrefab: {fileID: 0}
-  itemsRemaning: 5
   range: 1.2
+  isStack: 0
+  maxItems: 6
+  respawnTime: 6
+  leftText: {fileID: 0}
+  animatorUi: {fileID: 0}
 --- !u!50 &2926869760020750192
 Rigidbody2D:
   serializedVersion: 4

@@ -39,6 +39,10 @@ public class WaterLevelControl : MonoBehaviour
             if (wl.WaterLevelPercent < 0) wl.WaterLevelPercent = 0;
         }
     }
+    public void FailThrowWaterOut()
+    {
+        wl.WaterLevelPercent += 0.3f;
+    }
     void Update()
     {
         wl.WaterLevelPercent += 0.005f * Time.deltaTime;
