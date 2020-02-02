@@ -30,9 +30,12 @@ public class StartGame : MonoBehaviour
     void Update()
     {
         if (Input.anyKeyDown && t)
+        if (Input.anyKeyDown && Time.timeScale == 0 && !GameManager.instance.IsShipDead )
         {
             GetComponent<Animator>().SetTrigger("Start");
         StartCoroutine(PlayLoop());
+            Time.timeScale = 1;
+            GameManager.instance.StartTime();
         }
     }
 }
