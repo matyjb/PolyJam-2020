@@ -26,11 +26,9 @@ public class Item : MonoBehaviour
 	public Animator animatorUi;
 	
 
-
 	// Internal
 	int itemsRemaning = 6;
 	float timeSinceLastSpawn;
-
 
 
 	void Awake() {
@@ -121,6 +119,22 @@ public class Item : MonoBehaviour
 	private void OnTriggerEnter2D( Collider2D collision )
 	{
 		if( collision.tag == "Destroyer" )
-			Destroy( gameObject );
+		{
+			StartCoroutine( FadeOutAndDestroy() );
+		}
+	}
+
+	IEnumerator FadeOutAndDestroy()
+	{
+		Color c;
+		float duration = .1f;
+		for( float ft = 1f; ft >= 0f; ft -= Time.deltaTime / duration )
+		{
+			c = sprite.material.color;
+			c.a = ft;
+			sprite.material.color = c;
+			yield return null;
+		}
+		Destroy( gameObject );
 	}
 }
