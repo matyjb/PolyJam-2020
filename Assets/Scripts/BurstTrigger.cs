@@ -35,6 +35,6 @@ public class BurstTrigger : MonoBehaviour
 		cannonballPS.Play();
 		anim.SetTrigger( "Burst" );
 
-		GameManager.instance.AddPoints( 300 );
+		GameManager.instance.cannonsShot++;
 	}
 }
