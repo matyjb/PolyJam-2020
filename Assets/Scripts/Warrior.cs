@@ -7,8 +7,8 @@ public class Warrior : MonoBehaviour
 	public Vector3 targetPosition;
 	bool onPosition = false;
 
-	public void Setup(Vector3 target) {
-		targetPosition = target + Vector3.down / 2;
+	public void Setup(Vector3 target, bool pirateIsRight) {
+		targetPosition = target + (pirateIsRight ? Vector3.left : Vector3.right) / 2;
 	}
 
 	// Update is called once per frame
