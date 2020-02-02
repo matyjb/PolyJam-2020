@@ -57,14 +57,18 @@ public class CanonGuyPickUp : MonoBehaviour
 	void StartWaitingForBall() {
 		idleing = false;
 		animator.SetTrigger("NeedKula");
-		ThrowBottle();
+		StartCoroutine(ThrowBottleAfterTime());
 	}
 
+	IEnumerator ThrowBottleAfterTime() {
+		yield return new WaitForSeconds(0.2f);
+		ThrowBottle();
+	}
 	void ThrowBottle() {
 	GameObject tempGo = Instantiate(bottlePrefab, Inventory.instance.draggables.transform);
 		Item item = tempGo.GetComponent<Item>();
 		tempGo.transform.rotation = new Quaternion();
 		tempGo.transform.position = transform.position + Vector3.down;
-		item.rigidbody2d.velocity = Vector3.down * 6;
+		item.rigidbody2d.velocity = new Vector3(Random.Range(-3f, 4f), -4, 0);
 	}
 }
