@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [Header( "Player" )]
     public GameObject player;
 
-    Vector2 holeSpawnArea = new Vector2( 5f, 2f );
+    public Vector2 holeSpawnArea = new Vector2( 5f, 2f );
     public GameObject holePrefab;
     // Health
     float shipHealth;
