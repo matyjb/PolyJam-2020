@@ -21,16 +21,20 @@ public class Item : MonoBehaviour
 	[Header("Stack")]
 	public bool isStack;
 	public int maxItems = 6;
+	public float respawnTime = 6;
 	public Text leftText;
 	public Animator animatorUi;
+	
 
 
 	// Internal
 	int itemsRemaning = 6;
+	float timeSinceLastSpawn;
 
 
 
 	void Awake() {
+		itemsRemaning = maxItems;
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		sprite = GetComponent<SpriteRenderer>();
 	}
@@ -51,7 +55,15 @@ public class Item : MonoBehaviour
 			Inventory.DeHighlight(this);
 		}
 
-		leftText.text = "<b>" + itemsRemaning.ToString() + "</b>";
+		if (isStack) {
+			if (Time.timeSinceLevelLoad - timeSinceLastSpawn >= respawnTime && itemsRemaning < maxItems) {
+				itemsRemaning += 1;
+				timeSinceLastSpawn = Time.timeSinceLevelLoad;
+				animatorUi.SetTrigger("Grab");
+			}
+			leftText.text = "<b>" + itemsRemaning.ToString() + "</b>";
+		}
+
 	}
 
 	public void Highlight() {
@@ -74,6 +86,8 @@ public class Item : MonoBehaviour
 			tempGo.transform.localPosition = Vector3.zero;
 			itemsRemaning -= 1;
 			animatorUi.SetTrigger("Grab");
+			if (!(itemsRemaning + 1 < maxItems))
+				timeSinceLastSpawn = Time.timeSinceLevelLoad;
 			return item;
 		} else {
 			rigidbody2d.simulated = false;
