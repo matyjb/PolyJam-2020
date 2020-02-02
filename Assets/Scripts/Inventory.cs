@@ -46,6 +46,9 @@ public class Inventory : MonoBehaviour
 
     public void Drop()
     {
+		if (!pickedUp)
+			return;
+
         if (pickedUp.gameObject.tag == "Wiadro")
         {
             if (!Burta._instance.isIn)

@@ -100,7 +100,7 @@ MonoBehaviour:
   floatFactor: 0.95
   rigidbody2d: {fileID: 0}
   objectPrefab: {fileID: 0}
-  range: 1.2
+  range: 1.5
   isStack: 0
   maxItems: 6
   respawnTime: 6
