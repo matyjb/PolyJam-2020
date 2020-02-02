@@ -31,42 +31,41 @@ public class FightSimulation : MonoBehaviour {
 	}
 
 	void SpawnPair() {
-		bool isPirateRight = true;
-		if (Random.Range(0, 2) == 0)
-			isPirateRight = false;
 
 		Vector2 targetPosition = ReturnFightPosition();
 		if (targetPosition == Vector2.zero)
 			return;
 		fightPair.Add(targetPosition);
 
+		// Orientation
+
 		// Pirate
 		GameObject tempGo = Instantiate(piratePrefab, new Vector3(0, 5.5f, 0), transform.rotation, pirateWarriorGo.transform);
 		pirates.Add(tempGo);
-		tempGo.GetComponent<Pirate>().Setup(targetPosition, isPirateRight);
+		tempGo.GetComponent<Pirate>().Setup(targetPosition);
 
 		// Warrior
-		StartCoroutine(SpawnWarriorAfterTime(targetPosition, isPirateRight));
+		StartCoroutine(SpawnWarriorAfterTime(targetPosition));
 		
 
 		// Other
 	}
 
-	IEnumerator SpawnWarriorAfterTime(Vector3 targetPosition, bool isPirateRight) {
+	IEnumerator SpawnWarriorAfterTime(Vector3 targetPosition) {
 		yield return new WaitForSeconds(Random.Range(1f, 2.5f));
 		SpawnExclMark(targetPosition);
 		yield return new WaitForSeconds(1.05f);
-		int multiplayer = -1;
-		if (targetPosition.x >= 0)
+		int multiplayer = 1;
+		if (targetPosition.x < 0)
 			multiplayer *= -1;
 		GameObject tempGo = Instantiate(warriorPrefab, new Vector3(8 * multiplayer, 0, 0), transform.rotation, pirateWarriorGo.transform);
 		warriors.Add(tempGo);
-		tempGo.GetComponent<Warrior>().Setup(targetPosition, isPirateRight);
+		tempGo.GetComponent<Warrior>().Setup(targetPosition);
 	}
 
 	Vector2 ReturnFightPosition() {
 		Vector2 randomPos;
-		float circleRadius = 1f;
+		float circleRadius = 1.4f;
 		Vector2 holeSpawnArea = GameManager.instance.holeSpawnArea;
 
 		Collider2D collision;

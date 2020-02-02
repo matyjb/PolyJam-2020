@@ -7,8 +7,12 @@ public class Pirate : MonoBehaviour
 	public Vector3 targetPosition;
 	bool onPosition = false;
 
-	public void Setup(Vector3 target, bool pirateIsRight) {
-		targetPosition = target + (pirateIsRight ? Vector3.right : Vector3.left);
+	public void Setup(Vector3 target) {
+		targetPosition = target + (target.x < 0 ? Vector3.right : Vector3.left);
+
+		Rotate(target.x >= 0);
+		
+
 	}
 
     // Update is called once per frame
@@ -25,4 +29,13 @@ public class Pirate : MonoBehaviour
 			}
 		}
     }
+
+	void Rotate(bool right) {
+		Vector3 rotation = transform.GetChild(0).rotation.eulerAngles;
+		if (right)
+			rotation.y = 180;
+		else
+			rotation.y = 0;
+		transform.GetChild(0).rotation = Quaternion.Euler(rotation);
+	}
 }
