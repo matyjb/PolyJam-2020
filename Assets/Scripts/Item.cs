@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
@@ -12,15 +13,28 @@ public class Item : MonoBehaviour
 	private bool collided;
 
 	[Header("Item pickable")]
-	public bool isStack;
 	public GameObject objectPrefab;
-	public int itemsRemaning = 5;
 	public float range = 1.2f;
 	SpriteRenderer sprite;
 	bool canPickUp = false;
-    
+
+	[Header("Stack")]
+	public bool isStack;
+	public int maxItems = 6;
+	public float respawnTime = 6;
+	public Text leftText;
+	public Animator animatorUi;
+	
+
+
+	// Internal
+	int itemsRemaning = 6;
+	float timeSinceLastSpawn;
+
+
 
 	void Awake() {
+		itemsRemaning = maxItems;
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		sprite = GetComponent<SpriteRenderer>();
 	}
@@ -35,10 +49,21 @@ public class Item : MonoBehaviour
 		// PickingUp
 		canPickUp = Vector3.Distance(transform.position, GameManager.instance.player.transform.position) <= range;
 		if (canPickUp) {
-			Inventory.CheckIfCanHighlight(this);
+			if (itemsRemaning > 0)
+				Inventory.CheckIfCanHighlight(this);
 		} else {
 			Inventory.DeHighlight(this);
 		}
+
+		if (isStack) {
+			if (Time.timeSinceLevelLoad - timeSinceLastSpawn >= respawnTime && itemsRemaning < maxItems) {
+				itemsRemaning += 1;
+				timeSinceLastSpawn = Time.timeSinceLevelLoad;
+				animatorUi.SetTrigger("Grab");
+			}
+			leftText.text = "<b>" + itemsRemaning.ToString() + "</b>";
+		}
+
 	}
 
 	public void Highlight() {
@@ -59,6 +84,10 @@ public class Item : MonoBehaviour
 			item.sprite.sortingOrder = 100;
 			tempGo.transform.rotation = new Quaternion();
 			tempGo.transform.localPosition = Vector3.zero;
+			itemsRemaning -= 1;
+			animatorUi.SetTrigger("Grab");
+			if (!(itemsRemaning + 1 < maxItems))
+				timeSinceLastSpawn = Time.timeSinceLevelLoad;
 			return item;
 		} else {
 			rigidbody2d.simulated = false;
