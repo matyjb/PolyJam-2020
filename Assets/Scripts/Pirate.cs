@@ -21,6 +21,7 @@ public class Pirate : MonoBehaviour
 			if (Vector3.Distance(transform.position, targetPosition) < 0.1f) {
 				onPosition = true;
 				transform.position = targetPosition;
+				GetComponent<Animator>().SetTrigger("Attack");
 			}
 		}
     }
