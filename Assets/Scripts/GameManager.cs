@@ -44,19 +44,23 @@ public class GameManager : MonoBehaviour
 
 	private void Awake()
 	{
-		Time.timeScale = 1;
+		Time.timeScale = 0;
 		instance = this;
 	}
 
 	void Start()
 	{
-		gameplayStartTime = Time.realtimeSinceStartup;
 		gameTime = 0;
 		points = 0;
 
 		shipHealth = 1.0f;
 
 		gameOverUI.SetActive( false );
+	}
+
+	public void StartTime()
+	{
+		gameplayStartTime = Time.realtimeSinceStartup;
 	}
 
 	void Update()

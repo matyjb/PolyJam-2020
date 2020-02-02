@@ -16,6 +16,8 @@ public class StartGame : MonoBehaviour
         if (Input.anyKeyDown)
         {
             GetComponent<Animator>().SetTrigger("Start");
+            Time.timeScale = 1;
+            GameManager.instance.StartTime();
         }
     }
 }
