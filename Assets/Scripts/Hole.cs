@@ -107,7 +107,6 @@ public class Hole : MonoBehaviour
 		spriteRenderer.material.color = c;
 
 		audio.PlayOneShot( explosionSfx, .8f );
-		//yield return new WaitForSeconds( .3f );
 
 		Break();
 	}
