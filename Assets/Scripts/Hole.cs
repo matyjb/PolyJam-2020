@@ -20,6 +20,11 @@ public class Hole : MonoBehaviour
 	CircleCollider2D collider;
 	ParticleSystem smokePS;
 
+	AudioSource audio;
+	public AudioClip enemyCannonSfx;
+	public AudioClip explosionSfx;
+	public AudioClip fixingSfx;
+
 
 	void Start()
 	{
@@ -32,6 +37,8 @@ public class Hole : MonoBehaviour
 		collider.enabled = false;
 
 		smokePS = GetComponent<ParticleSystem>();
+
+		audio = GetComponent<AudioSource>();
 
 		StartCoroutine( CannonballHit() );
 	}
@@ -54,6 +61,8 @@ public class Hole : MonoBehaviour
 		spriteRenderer.sprite = fixedHoleSprite;
 		collider.enabled = false;
 		GameManager.instance.DamageShip( -0.1f );
+
+		audio.PlayOneShot( fixingSfx );
 	}
 
 	public void Break()
@@ -80,6 +89,8 @@ public class Hole : MonoBehaviour
 			yield return null;
 		}
 
+		audio.PlayOneShot( enemyCannonSfx );
+
 		for( int i = 0; i < 3; ++i )
 		{
 			for( float ft = 3f; ft >= .5f; ft -= Time.deltaTime * 3 )
@@ -94,6 +105,9 @@ public class Hole : MonoBehaviour
 		c = spriteRenderer.material.color;
 		c.a = 1;
 		spriteRenderer.material.color = c;
+
+		audio.PlayOneShot( explosionSfx, .8f );
+		//yield return new WaitForSeconds( .3f );
 
 		Break();
 	}

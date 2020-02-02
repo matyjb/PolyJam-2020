@@ -7,13 +7,13 @@ public class BurstTrigger : MonoBehaviour
     ParticleSystem particles;
     ParticleSystem cannonballPS;
     Animator anim;
+    AudioSource audio;
+
     public void FireCanon()
     {
         if (!particles.isPlaying)
         {
-            particles.Play();
-            cannonballPS.Play();
-            anim.SetTrigger("Burst");
+            StartCoroutine( ShootCannon() );
         }
     }
     // Start is called before the first frame update
@@ -22,11 +22,22 @@ public class BurstTrigger : MonoBehaviour
         anim = gameObject.GetComponentInParent<Animator>();
         particles = GetComponent<ParticleSystem>();
         cannonballPS = GetComponentInChildren<ParticleSystem>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    IEnumerator ShootCannon()
+    {
+        audio.Play();
+        yield return new WaitForSeconds( .16f );
+
+        particles.Play();
+        cannonballPS.Play();
+        anim.SetTrigger("Burst");
     }
 }
