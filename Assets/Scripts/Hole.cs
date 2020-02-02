@@ -18,6 +18,7 @@ public class Hole : MonoBehaviour
 	public Sprite fixedHoleSprite;
 
 	CircleCollider2D collider;
+	ParticleSystem smokePS;
 
 
 	void Start()
@@ -29,6 +30,8 @@ public class Hole : MonoBehaviour
 
 		collider = GetComponent<CircleCollider2D>();
 		collider.enabled = false;
+
+		smokePS = GetComponent<ParticleSystem>();
 
 		StartCoroutine( CannonballHit() );
 	}
@@ -61,6 +64,8 @@ public class Hole : MonoBehaviour
 		GameManager.instance.DamageShip( .1f );
 
 		FindObjectOfType<CameraController>().TriggerShake();
+
+		smokePS.Play();
 	}
 
 	IEnumerator CannonballHit()
