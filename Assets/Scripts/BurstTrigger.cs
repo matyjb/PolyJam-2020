@@ -5,12 +5,14 @@ using UnityEngine;
 public class BurstTrigger : MonoBehaviour
 {
     ParticleSystem particles;
+    ParticleSystem cannonballPS;
     Animator anim;
     public void FireCanon()
     {
         if (!particles.isPlaying)
         {
             particles.Play();
+            cannonballPS.Play();
             anim.SetTrigger("Burst");
         }
     }
@@ -19,6 +21,7 @@ public class BurstTrigger : MonoBehaviour
     {
         anim = gameObject.GetComponentInParent<Animator>();
         particles = GetComponent<ParticleSystem>();
+        cannonballPS = GetComponentInChildren<ParticleSystem>();
     }
 
     // Update is called once per frame
