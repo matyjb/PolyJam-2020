@@ -19,6 +19,7 @@ public class Hole : MonoBehaviour
 
 	CircleCollider2D collider;
 	ParticleSystem smokePS;
+	AudioSource audio;
 
 
 	void Start()
@@ -32,6 +33,8 @@ public class Hole : MonoBehaviour
 		collider.enabled = false;
 
 		smokePS = GetComponent<ParticleSystem>();
+
+		audio = GetComponent<AudioSource>();
 
 		StartCoroutine( CannonballHit() );
 	}
@@ -79,6 +82,8 @@ public class Hole : MonoBehaviour
 			spriteRenderer.material.color = c;
 			yield return null;
 		}
+
+		audio.Play();
 
 		for( int i = 0; i < 3; ++i )
 		{
