@@ -21,6 +21,7 @@ public class StartGame : MonoBehaviour
 	{
 		if( introScreen && Input.anyKeyDown )
 		{
+			audioSource.PlayOneShot( introMusic );
 			animator.SetTrigger( "Start" );
 			StartCoroutine( PlayLoop() );
 			Time.timeScale = 1;
