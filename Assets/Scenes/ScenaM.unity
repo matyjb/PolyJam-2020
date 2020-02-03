@@ -393,6 +393,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b90138fc645b3a04f9fe79ab1efc04db, type: 3}
+--- !u!114 &103667481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2696371441990333742, guid: 97ac0991fa8c2d943ab7fbbc21750f57,
+    type: 3}
+  m_PrefabInstance: {fileID: 254337132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &110699927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,6 +1102,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOver
       objectReference: {fileID: 0}
+    - target: {fileID: 2696371441009334835, guid: 97ac0991fa8c2d943ab7fbbc21750f57,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97ac0991fa8c2d943ab7fbbc21750f57, type: 3}
 --- !u!4 &305057915 stripped
@@ -1400,6 +1417,7 @@ GameObject:
   - component: {fileID: 432422523}
   - component: {fileID: 432422524}
   - component: {fileID: 432422525}
+  - component: {fileID: 432422526}
   m_Layer: 0
   m_Name: cameras
   m_TagString: Untagged
@@ -1454,8 +1472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88554f9c81a2844aa263f7ead7673a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intro: {fileID: 8300000, guid: 66c4dae112e8b9443939e0da740c5cb4, type: 3}
-  loop: {fileID: 0}
+  introMusic: {fileID: 8300000, guid: 66c4dae112e8b9443939e0da740c5cb4, type: 3}
 --- !u!82 &432422525
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1552,6 +1569,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &432422526
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432422521}
+  m_Enabled: 1
 --- !u!1 &466368462
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,7 +2420,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2512,7 +2537,7 @@ MonoBehaviour:
   gameTime: 0
   shipHealthUI: {fileID: 774256874}
   gameOverUI: {fileID: 2123012536}
-  cannonPoints: {fileID: 457614904}
+  cannonPoints: {fileID: 103667481}
   holePoints: {fileID: 1310312185}
   bucketPoints: {fileID: 2127194699}
   totalPoints: {fileID: 1221362408}
@@ -2806,7 +2831,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8103159560543886775, guid: 1f4198f616fcf474aa4d3991ac6a1101,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8103159560543886775, guid: 1f4198f616fcf474aa4d3991ac6a1101, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1f4198f616fcf474aa4d3991ac6a1101, type: 3}
 --- !u!4 &1003479927 stripped
 Transform:

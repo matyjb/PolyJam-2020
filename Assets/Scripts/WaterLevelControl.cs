@@ -35,6 +35,7 @@ public class WaterLevelControl : MonoBehaviour
         if (isInsideWater && (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.F)))
         {
             wl.WaterLevelPercent -= 0.3f;
+            GameManager.instance.bucketsEmptied++;
             GetComponent<AudioSource>().Play();
             if (wl.WaterLevelPercent < 0) wl.WaterLevelPercent = 0;
         }
@@ -42,6 +43,7 @@ public class WaterLevelControl : MonoBehaviour
     public void FailThrowWaterOut()
     {
         wl.WaterLevelPercent += 0.3f;
+        GameManager.instance.bucketsEmptied--;
     }
     void Update()
     {

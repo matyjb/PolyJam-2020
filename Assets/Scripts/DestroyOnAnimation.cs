@@ -6,7 +6,8 @@ public class DestroyOnAnimation : MonoBehaviour
 {
 	private void Awake()
 	{
-		GetComponent<AudioSource>().Play();
+		AudioSource audioSource = GetComponent<AudioSource>();
+		if( audioSource != null ) audioSource.Play();
 	}
 	public void DestroyAnim() {
 		Destroy(gameObject);

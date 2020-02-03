@@ -4,38 +4,35 @@ using UnityEngine;
 
 public class StartGame : MonoBehaviour
 {
-    private bool t = true;
-    public AudioClip intro;
-    public AudioClip loop;
-    // Start is called before the first frame update
-    void Start()
-    {
-        //GetComponent<AudioSource>().PlayDelayed(intro.length * intro.frequency);
-    }
+	private bool introScreen = true;
+	public AudioClip introMusic;
+	AudioSource audioSource;
+	Animator animator;
 
-    IEnumerator PlayLoop()
-    {
+	// Start is called before the first frame update
+	void Start()
+	{
+		audioSource = GetComponent<AudioSource>();
+		animator = GetComponent<Animator>();
+	}
 
-        t = false;
-        yield return new WaitForSeconds(2);
-        GetComponent<AudioSource>().PlayOneShot(intro);
-        yield return new WaitForSeconds(intro.length);
-        //GetComponent<AudioSource>().Stop();
-        GetComponent<AudioSource>().Play();
+	// Update is called once per frame
+	void Update()
+	{
+		if( introScreen && Input.anyKeyDown )
+		{
+			animator.SetTrigger( "Start" );
+			StartCoroutine( PlayLoop() );
+			Time.timeScale = 1;
+			GameManager.instance.StartTime();
+		}
+	}
 
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.anyKeyDown && t)
-        if (Input.anyKeyDown && Time.timeScale == 0 && !GameManager.instance.IsShipDead )
-        {
-            GetComponent<Animator>().SetTrigger("Start");
-        StartCoroutine(PlayLoop());
-            Time.timeScale = 1;
-            GameManager.instance.StartTime();
-        }
-    }
+	// Play loop music after intro music ends
+	IEnumerator PlayLoop()
+	{
+		introScreen = false;
+		yield return new WaitForSeconds( introMusic.length );
+		audioSource.Play();
+	}
 }
