@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
 
 	// UI
 	public Slider shipHealthUI;
+	public GameObject restartButton;
+	public GameObject joystick;
+	public GameObject actionButton;
 
 	// Gameover UI
 	public GameObject gameOverUI;
@@ -40,6 +43,8 @@ public class GameManager : MonoBehaviour
 	public Text holePoints;
 	public Text bucketPoints;
 	public Text totalPoints;
+
+	public bool forceAndroid = false;
 
 
 	private void Awake()
@@ -56,6 +61,11 @@ public class GameManager : MonoBehaviour
 		shipHealth = 1.0f;
 
 		gameOverUI.SetActive( false );
+		if (Application.platform == RuntimePlatform.Android || forceAndroid)
+		{
+			joystick.SetActive(true);
+			actionButton.SetActive(true);
+		}
 	}
 
 	public void StartTime()
@@ -65,6 +75,7 @@ public class GameManager : MonoBehaviour
 
 	void Update()
 	{
+
 		shipHealthUI.value = shipHealth;
 
 		if( IsShipDead )
@@ -94,6 +105,9 @@ public class GameManager : MonoBehaviour
 	{
 		shipHealthUI.gameObject.SetActive( false );
 		gameOverUI.SetActive( true );
+		restartButton.SetActive(true);
+		joystick.SetActive(false);
+		actionButton.SetActive(false);
 		cannonPoints.text = $"<b>{cannonsShot}</b>";
 		holePoints.text = $"<b>{holesHixed}</b>";
 		bucketPoints.text = $"<b>{bucketsEmptied}</b>";

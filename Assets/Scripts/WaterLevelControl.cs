@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WaterLevelControl : MonoBehaviour
 {
+    public ActionButtonHandler actionButton;
     public static WaterLevelControl _instance;
     public void Awake()
     {
@@ -32,7 +33,7 @@ public class WaterLevelControl : MonoBehaviour
     // Update is called once per frame
     public void PickUpBucketOfWater()
     {
-        if (isInsideWater && (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.F)))
+        if (isInsideWater && (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.F) || actionButton.buttonDown))
         {
             wl.WaterLevelPercent -= 0.3f;
             GameManager.instance.bucketsEmptied++;

@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour
 	public GameObject splashPrefab;
 
     public GameObject draggables;
+    public ActionButtonHandler actionButton;
 
 
 	private void Awake() {
@@ -23,7 +24,7 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.F) || actionButton.buttonDown)
         {
             if (pickedUp == null)
             {
